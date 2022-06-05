@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 839px;
+            height: 540px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/CurvasBatimtricas_3.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-24.85453703711188,-44.25076323077106],[-16.05932953635697,-30.567512899670994]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_RelevoSombreado_0');
+        map.getPane('pane_RelevoSombreado_0').style.zIndex = 400;
+        var img_RelevoSombreado_0 = 'data/RelevoSombreado_0.png';
+        var img_bounds_RelevoSombreado_0 = [[-22.270416286,-41.87958241],[-17.892082845999973,-28.847915427999947]];
+        var layer_RelevoSombreado_0 = new L.imageOverlay(img_RelevoSombreado_0,
+                                              img_bounds_RelevoSombreado_0,
+                                              {pane: 'pane_RelevoSombreado_0'});
+        bounds_group.addLayer(layer_RelevoSombreado_0);
+        map.addLayer(layer_RelevoSombreado_0);
+        map.createPane('pane_Relevo_Sombreado_batimetria_1');
+        map.getPane('pane_Relevo_Sombreado_batimetria_1').style.zIndex = 401;
+        var img_Relevo_Sombreado_batimetria_1 = 'data/Relevo_Sombreado_batimetria_1.png';
+        var img_bounds_Relevo_Sombreado_batimetria_1 = [[-22.269231252,-40.960927318],[-18.334231251999945,-37.43092731800006]];
+        var layer_Relevo_Sombreado_batimetria_1 = new L.imageOverlay(img_Relevo_Sombreado_batimetria_1,
+                                              img_bounds_Relevo_Sombreado_batimetria_1,
+                                              {pane: 'pane_Relevo_Sombreado_batimetria_1'});
+        bounds_group.addLayer(layer_Relevo_Sombreado_batimetria_1);
+        map.addLayer(layer_Relevo_Sombreado_batimetria_1);
+        map.createPane('pane_Hipsometriam_2');
+        map.getPane('pane_Hipsometriam_2').style.zIndex = 402;
+        var img_Hipsometriam_2 = 'data/Hipsometriam_2.png';
+        var img_bounds_Hipsometriam_2 = [[-22.270416286,-41.87958241],[-17.892082845999973,-28.847915427999947]];
+        var layer_Hipsometriam_2 = new L.imageOverlay(img_Hipsometriam_2,
+                                              img_bounds_Hipsometriam_2,
+                                              {pane: 'pane_Hipsometriam_2'});
+        bounds_group.addLayer(layer_Hipsometriam_2);
+        map.addLayer(layer_Hipsometriam_2);
+        function pop_CurvasBatimtricas_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">PROFUNDIDA</th>\
+                        <td>' + (feature.properties['PROFUNDIDA'] !== null ? autolinker.link(feature.properties['PROFUNDIDA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CurvasBatimtricas_3_0(feature) {
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -6500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -5250.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(8,48,107,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -5250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4750.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(10,84,158,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -4750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4250.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(33,114,182,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -4250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4000.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(62,142,196,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -4000.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3500.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(96,166,210,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -3500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3250.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(137,191,221,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -3250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -2750.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(176,210,232,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -2750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -1500.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(205,224,242,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -1500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -75.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(226,238,249,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -75.000000 && feature.properties['to_int("PROFUNDIDA")'] <= 0.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(247,251,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_CurvasBatimtricas_3');
+        map.getPane('pane_CurvasBatimtricas_3').style.zIndex = 403;
+        map.getPane('pane_CurvasBatimtricas_3').style['mix-blend-mode'] = 'normal';
+        var layer_CurvasBatimtricas_3 = new L.geoJson(json_CurvasBatimtricas_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CurvasBatimtricas_3',
+            layerName: 'layer_CurvasBatimtricas_3',
+            pane: 'pane_CurvasBatimtricas_3',
+            onEachFeature: pop_CurvasBatimtricas_3,
+            style: style_CurvasBatimtricas_3_0,
+        });
+        bounds_group.addLayer(layer_CurvasBatimtricas_3);
+        map.addLayer(layer_CurvasBatimtricas_3);
+        map.createPane('pane_Batimetriam_4');
+        map.getPane('pane_Batimetriam_4').style.zIndex = 404;
+        var img_Batimetriam_4 = 'data/Batimetriam_4.png';
+        var img_bounds_Batimetriam_4 = [[-22.269231252,-40.960927318],[-18.334231251999945,-37.43092731800006]];
+        var layer_Batimetriam_4 = new L.imageOverlay(img_Batimetriam_4,
+                                              img_bounds_Batimetriam_4,
+                                              {pane: 'pane_Batimetriam_4'});
+        bounds_group.addLayer(layer_Batimetriam_4);
+        map.addLayer(layer_Batimetriam_4);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{"Batimetria (m)": layer_Batimetriam_4,'Curvas Batimétricas<br /><table><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_650052500.png" /></td><td>-6500 - -5250</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_525047501.png" /></td><td>-5250 - -4750</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_475042502.png" /></td><td>-4750 - -4250</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_425040003.png" /></td><td>-4250 - -4000</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_400035004.png" /></td><td>-4000 - -3500</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_350032505.png" /></td><td>-3500 - -3250</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_325027506.png" /></td><td>-3250 - -2750</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_275015007.png" /></td><td>-2750 - -1500</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_1500758.png" /></td><td>-1500 - -75</td></tr><tr><td style="text-align: center;"><img src="legend/CurvasBatimtricas_3_7509.png" /></td><td>-75 - 0</td></tr></table>': layer_CurvasBatimtricas_3,"Hipsometria (m)": layer_Hipsometriam_2,"Relevo_Sombreado_batimetria": layer_Relevo_Sombreado_batimetria_1,"Relevo Sombreado": layer_RelevoSombreado_0,}).addTo(map);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>

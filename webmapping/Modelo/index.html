@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Sidebars · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
+
+
+
+    <!-- Bootstrap core CSS -->
+    <!---->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+            </path>
+        </symbol>
+        <symbol id="home" viewBox="0 0 16 16">
+            <path
+                d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+        </symbol>
+        <symbol id="speedometer2" viewBox="0 0 16 16">
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+            <path fill-rule="evenodd"
+                d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
+        </symbol>
+        <symbol id="table" viewBox="0 0 16 16">
+            <path
+                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
+        </symbol>
+        <symbol id="people-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+        </symbol>
+        <symbol id="grid" viewBox="0 0 16 16">
+            <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+        </symbol>
+        <symbol id="collection" viewBox="0 0 16 16">
+            <path
+                d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
+        </symbol>
+        <symbol id="calendar3" viewBox="0 0 16 16">
+            <path
+                d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+            <path
+                d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+        </symbol>
+        <symbol id="chat-quote-fill" viewBox="0 0 16 16">
+            <path
+                d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM7.194 6.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 6C4.776 6 4 6.746 4 7.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 9.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 6c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z" />
+        </symbol>
+        <symbol id="cpu-fill" viewBox="0 0 16 16">
+            <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+            <path
+                d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z" />
+        </symbol>
+        <symbol id="gear-fill" viewBox="0 0 16 16">
+            <path
+                d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+        </symbol>
+        <symbol id="speedometer" viewBox="0 0 16 16">
+            <path
+                d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+            <path fill-rule="evenodd"
+                d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
+        </symbol>
+        <symbol id="toggles2" viewBox="0 0 16 16">
+            <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z" />
+            <path
+                d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z" />
+            <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
+        </symbol>
+        <symbol id="tools" viewBox="0 0 16 16">
+            <path
+                d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </symbol>
+        <symbol id="geo-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
+        </symbol>
+    </svg>
+
+    <main>
+        <div id="checkboxlayers" style="width: 580px; overflow:scroll;">
+
+            <div class="flex-shrink-0 p-3 bg-white ">
+                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                    <!--   <svg class="bi bi-layers-half" width="30" height="24">
+          <use xlink:href="#bootstrap" />
+        </svg>-->
+                    <span class="fs-5 fw-semibold">Camadas</span>
+                </a>
+                <ul class="list-unstyled ps-0" id="search">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#recurso_eolico" aria-expanded="false">
+                        Recurso Eolico
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="recurso_eolico">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'recurso_eolico'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
+                                    </div>
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#aspectos_fisiograficos" aria-expanded="false">
+                    Aespectos Fisiográficos
+                </button>
+                <li class="mb-1">
+                    <div class="collapse" id="aspectos_fisiograficos">
+                        <div v-for="layer in layers">
+                            <div v-if="layer.group == 'aspectos_fisiograficos'" class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox"
+                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                            aria-label="Checkbox for following text input"
+                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                    </div>
+                                </div>
+                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                </ul>
+             
+
+            </div>
+
+        </div>
+
+
+        <!--TESTE 01-->
+        <!doctype html>
+        <html lang="en">
+
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+            <meta name="mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <link rel="stylesheet" href="css/leaflet.css">
+            <link rel="stylesheet" href="css/L.Control.Locate.min.css">
+            <link rel="stylesheet" href="css/qgis2web.css">
+            <link rel="stylesheet" href="css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+            <link rel="stylesheet" href="css/leaflet-measure.css">
+            <!--Árvore Nova-->
+            <link rel="stylesheet" href="src/plugins/tree/L.Control.Layers.Tree.css" />
+            <!--Fim Árvore Nova-->
+
+            <style>
+                html,
+                body,
+                #map {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
+            </style>
+            <title></title>
+        </head>
+
+        <body>
+            <script src="script.js">
+
+            </script>
+
+            <div id="map">
+            </div>
+
+            <script src="js/qgis2web_expressions.js"></script>
+            <script src="js/leaflet.js"></script>
+            <script src="js/multi-style-layer.js"></script>
+            <script src="js/leaflet-svg-shape-markers.min.js"></script>
+            <script src="js/L.Control.Locate.min.js"></script>
+            <script src="js/leaflet.rotatedMarker.js"></script>
+            <script src="js/leaflet.pattern.js"></script>
+            <script src="js/leaflet-hash.js"></script>
+            <script src="js/Autolinker.min.js"></script>
+            <script src="js/rbush.min.js"></script>
+            <script src="js/labelgun.min.js"></script>
+            <script src="js/labels.js"></script>
+            <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+            <script src="js/leaflet-measure.js"></script>
+            <script src="src/plugins/tree/L.Control.Layers.Tree.js"></script>
+            <!--Minimap-->
+            <link rel="stylesheet" href="src/Control.MiniMap.css" />
+            <script src="src/Control.MiniMap.js" type="text/javascript"></script>
+            <!--Fim Minimap-->
+            <!--Bootstrap-->
+            <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="sidebars.js"></script>
+            <!--Fim Bootstrap-->
+
+
+
+            <!--Fim Bases Cartográficas-->
+            <!--Recursos Eólicos-->
+            <script src="data/Municpios_1.js"></script>
+            <script src="data/EspritoSanto_2.js"></script>
+
+            <!--Fim Recursos Eólicos-->
+
+            <!--Aspectos Fisiograficos-->
+            <script src="data/CurvasBatimtricas_3.js"></script>
+
+            <!--Fim Aspectos-->
+
+
+            <!--Socio Ambiental-->
+          
+
+
+            <!--Fim de Estacoes Solarimetricas-->
+            <!--Recursos eólicos poligonizados-->
+            <!--      <script src="data/irradiacaoidealdosmodulosfotovoltaicos_0.js"></script>
+            <script src="data/irradiacaoglobaleminclinacaootimizada_1.js"></script>
+            <script src="data/irradiacaohorizontaldifusa_2.js"></script>
+            <script src="data/irradiacaohorizontalglobal_3.js"></script>
+            <script src="data/mediaanualdelongoprazodatemperaturadoar_5.js"></script>
+            <script src="data/potencialproducaoeletricidadefotovoltaica_6.js"></script>-->
+            <!--Fim Recursos eólicos Poligonizados-->
+            <!--Links Easy bottom-->
+
+
+            <script src="src/plugins/Leaflet.Control.Custom.js"></script>
+            <!--Mouse Position-->
+            <script src="src/plugins/L.Control.MousePosition.js"></script>
+            <link rel="stylesheet" href="src/plugins/L.Control.MousePosition.css">
+            <!--Fim Mouse Position-->
+
+            <!--Legenda-->
+            <script src="src/plugins/legend/L.Control.HtmlLegend.js"></script>
+            <link rel="stylesheet" href="src/plugins/legend/L.Control.HtmlLegend.css">
+            <!--Fim da legenda-->
+
+            <!--FIm do Easy Bottom-->
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script type="module">
+
+                var search = new Vue({
+                    el: `#search`,
+                    data() {
+                        return {
+                            "data": {
+                                "index": "municipio",
+                                "value": "Mossoró",
+                                "type": "concentracao",
+                                "search": {
+                                    "camadas_selecionadas": ["es", "velocidade_dos_ventos"]
+                                }
+                            },
+                            "layers": [
+
+                                //Recurso EólicoEs
+                                
+                                //Recurso Solar
+                                {'layer': layer_Municpios_1, group: 'recurso_eolico', label: 'Municípios', 'name': 'municipios', needBeAlone: false},
+                                {'layer': layer_EspritoSanto_2, group: 'recurso_eolico', label: 'Espírito Santo', 'name': 'es', needBeAlone: false},
+                                {'layer': layer_VelocidadedosVentos100m_0, group: 'recurso_eolico', label: 'Velocidade dos Ventos 100m', 'name': 'velocidade_dos_ventos', needBeAlone: false},
+
+                                {'layer': layer_Batimetriam_4, group: 'aspectos_fisiograficos', label: 'Batimetria', 'name': 'batimetria', needBeAlone: false},
+                                {'layer': layer_CurvasBatimtricas_3, group: 'aspectos_fisiograficos', label: 'Curvas Batimétricas', 'name': 'curvas_batimetricas', needBeAlone: false},
+                                {'layer': layer_Hipsometriam_2, group: 'aspectos_fisiograficos', label: 'Hipsometria', 'name': 'hipsometria', needBeAlone: false},
+                                {'layer': layer_Relevo_Sombreado_batimetria_1, group: 'aspectos_fisiograficos', label: 'Relevo Sombreado Batimetria', 'name': 'relevo_sombreado_batimetria', needBeAlone: false},
+                                {'layer': layer_RelevoSombreado_0, group: 'aspectos_fisiograficos', label: 'Relevo Sombreado', 'name': 'relevo_sombreado', needBeAlone: false},
+
+                            ]
+                        }
+                    },
+
+                    methods: {
+                        async addOrRemoveLayer(value, layer) {
+                            const layer_object = await this.getLayerObject(layer);
+
+                            if (this.data.search.camadas_selecionadas.indexOf(value) !== -1) {
+                                if (layer_object.needBeAlone) {
+                                    await this.clearFirstLayerSession()
+                                    this.data.search.camadas_selecionadas.push(value)
+                                }
+
+                                map.addLayer(layer_object.layer)
+
+                                if (layer_object.sub_layer)
+                                    map.addLayer(layer_object.sub_layer)
+                            }
+                            else {
+                                map.removeLayer(layer_object.layer)
+                                if (layer_object.sub_layer !== undefined)
+                                    map.removeLayer(layer_object.sub_layer)
+                            }
+                        },
+                        getLayerObject(layer_name) {
+                            let response = {};
+                            this.layers.forEach(element => {
+                                if (element.name == layer_name)
+                                    response = element;
+                            });
+                            return response;
+                        },
+                        async clearFirstLayerSession() {
+                            this.layers.forEach(element => {
+                                if (element.needBeAlone) {
+                                    const idx = this.data.search.camadas_selecionadas.indexOf(element.name)
+                                    if (idx > -1) {
+                                        this.data.search.camadas_selecionadas.splice(idx, 1)
+                                        map.removeLayer(element.layer)
+                                        if (element.sub_layer)
+                                            map.removeLayer(element.sub_layer)
+
+                                    }
+                                }
+                            });
+
+                        }
+                    }
+                })
+
+            </script>
+
+
+            <script>
+
+
+
+
+
+                //Script Teste botões
+                function nada() { }
+                var hidden = true;
+                function show3D() {
+                    var w = 1200;
+                    var h = 800;
+                    var left = (screen.width / 2) - (w / 2);
+                    var top = (screen.height / 2) - (h / 2);
+                    return window.open('https://sketchfab.com/models/a5768dbde52e416b9a30b341e96517bd/embed?', 'Aventura 3D', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+                }
+                //Fim de Script
+
+                var menu = new L.control.custom({
+                    position: 'topright',
+                    content: '<button type="button" class="btn btn-default" onclick="print();">' +
+                        '    <i class="fas fa-file-pdf"></i>' +
+                        '</button>',
+
+
+                    classes: 'btn-group-vertical btn-group-sm',
+                    style:
+                    {
+                        margin: '10px',
+                        padding: '0px 0 0 0',
+                        cursor: 'pointer'
+                    },
+                    datas:
+                    {
+                        'foo': 'bar',
+                    },
+                    events:
+                    {
+                        click: function (data) {
+                            console.log('wrapper div element clicked');
+                            console.log(data);
+                        },
+                        dblclick: function (data) {
+                            console.log('wrapper div element dblclicked');
+                            console.log(data);
+                        },
+                        contextmenu: function (data) {
+                            console.log('wrapper div element contextmenu');
+                            console.log(data);
+                        },
+                    }
+                })
+                    ;
+
+                L.control.custom({
+                    position: 'topleft',
+                    content: '<div class="input-group">' +
+                        '    <input type="text" class="form-control input-sm" placeholder="Search">' +
+                        '    <span class="input-group-btn">' +
+                        '        <button class="btn btn-default btn-sm" type="button">Go!</button>' +
+                        '    </span>' +
+                        '</div>',
+                    classes: '',
+                    style:
+                    {
+                        position: 'absolute',
+                        left: '50px',
+                        top: '0px',
+                        width: '200px',
+                    },
+                })
+                    ;
+
+                L.control.custom({
+                    position: 'bottomleft',
+                    content: '<div class="panel-body">' +
+                        '    <div class="progress" style="margin-bottom:0px;">' +
+                        '        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="41" ' +
+                        '             aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 41%">' +
+                        '            41% Completed' +
+                        '        </div>' +
+                        '    </div>' +
+                        '</div>',
+                    classes: 'panel panel-default',
+                    style:
+                    {
+                        width: '200px',
+                        margin: '20px',
+                        padding: '0px',
+                    },
+                })
+                    ;
+
+
+
+                var logo = new L.control.custom({
+                    position: 'bottomleft',
+                    content: '<img src="images/logo.png" class="img-thumbnail" id="demoImage">',
+                    classes: '',
+                    style:
+                    {
+
+                        margin: '0px 20px 20px 0',
+                        padding: '0px',
+
+                    },
+                })
+                    ;
+
+
+
+
+
+                //CONTROLE CUSTOM
+
+                var highlightLayer;
+                function highlightFeature(e) {
+                    highlightLayer = e.target;
+
+                    if (e.target.feature.geometry.type === 'LineString') {
+                        highlightLayer.setStyle({
+                            color: '#ffff00',
+                        });
+                    } else {
+                        highlightLayer.setStyle({
+                            fillColor: '#ffff00',
+                            fillOpacity: 1
+                        });
+                    }
+                    highlightLayer.openPopup();
+                }
+                var map = L.map('map', {
+                    //   zoomControl: true, maxZoom: 28, minZoom: 1
+                    //   dragging: false,
+                    //scrollWheelZoom: 'center'
+                }).fitBounds([[-5.366244184838307, -35.82175956359306], [-5.310677169442801, -35.732002965290754]]);
+                var hash = new L.Hash(map);
+                map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+                var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+                L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+                var measureControl = new L.Control.Measure({
+                    position: 'topleft',
+                    primaryLengthUnit: 'meters',
+                    secondaryLengthUnit: 'kilometers',
+                    primaryAreaUnit: 'sqmeters',
+                    secondaryAreaUnit: 'hectares'
+                });
+                measureControl.addTo(map);
+                menu.addTo(map);
+                map.setMaxBounds([
+                    [-16.575177513814918, -42.6685090257124],
+                    [-24.575177513814918, -36.6685090257124]
+                ]);
+                map.setView(new L.LatLng(-20.009, -39.666), 7);
+                //   logo.addTo(map);
+
+                document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+                    .innerHTML = '';
+                document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+                    .className += ' fas fa-ruler';
+                var bounds_group = new L.featureGroup([]);
+                function setBounds() {
+                }
+                //escala
+                L.control.scale(
+
+                ).addTo(map);
+
+                //
+                L.control.mousePosition().addTo(map);
+
+
+                map.createPane('pane_VelocidadedosVentos100m_0');
+        map.getPane('pane_VelocidadedosVentos100m_0').style.zIndex = 400;
+        var img_VelocidadedosVentos100m_0 = 'data/VelocidadedosVentos100m_0.png';
+        var img_bounds_VelocidadedosVentos100m_0 = [[-22.269231252,-41.878427318],[-17.894231251999972,-28.848427317999985]];
+        var layer_VelocidadedosVentos100m_0 = new L.imageOverlay(img_VelocidadedosVentos100m_0,
+                                              img_bounds_VelocidadedosVentos100m_0,
+                                              {pane: 'pane_VelocidadedosVentos100m_0'});
+        bounds_group.addLayer(layer_VelocidadedosVentos100m_0);
+        map.addLayer(layer_VelocidadedosVentos100m_0);
+        function pop_Municpios_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CD_MUN'] !== null ? autolinker.link(feature.properties['CD_MUN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_MUN'] !== null ? autolinker.link(feature.properties['NM_MUN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Municpios_1_0() {
+            return {
+                pane: 'pane_Municpios_1',
+                opacity: 1,
+                color: 'rgba(57,57,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Municpios_1');
+        map.getPane('pane_Municpios_1').style.zIndex = 401;
+        map.getPane('pane_Municpios_1').style['mix-blend-mode'] = 'normal';
+        var layer_Municpios_1 = new L.geoJson(json_Municpios_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Municpios_1',
+            layerName: 'layer_Municpios_1',
+            pane: 'pane_Municpios_1',
+            onEachFeature: pop_Municpios_1,
+            style: style_Municpios_1_0,
+        });
+        bounds_group.addLayer(layer_Municpios_1);
+        function pop_EspritoSanto_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CD_UF'] !== null ? autolinker.link(feature.properties['CD_UF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_UF'] !== null ? autolinker.link(feature.properties['NM_UF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SIGLA_UF'] !== null ? autolinker.link(feature.properties['SIGLA_UF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_REGIAO'] !== null ? autolinker.link(feature.properties['NM_REGIAO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EspritoSanto_2_0() {
+            return {
+                pane: 'pane_EspritoSanto_2',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_EspritoSanto_2');
+        map.getPane('pane_EspritoSanto_2').style.zIndex = 402;
+        map.getPane('pane_EspritoSanto_2').style['mix-blend-mode'] = 'normal';
+        var layer_EspritoSanto_2 = new L.geoJson(json_EspritoSanto_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_EspritoSanto_2',
+            layerName: 'layer_EspritoSanto_2',
+            pane: 'pane_EspritoSanto_2',
+            onEachFeature: pop_EspritoSanto_2,
+            style: style_EspritoSanto_2_0,
+        });
+        bounds_group.addLayer(layer_EspritoSanto_2);
+        map.addLayer(layer_EspritoSanto_2);
+       
+//Aspectos Fisiográficos
+map.createPane('pane_RelevoSombreado_0');
+        map.getPane('pane_RelevoSombreado_0').style.zIndex = 400;
+        var img_RelevoSombreado_0 = 'data/RelevoSombreado_0.png';
+        var img_bounds_RelevoSombreado_0 = [[-22.270416286,-41.87958241],[-17.892082845999973,-28.847915427999947]];
+        var layer_RelevoSombreado_0 = new L.imageOverlay(img_RelevoSombreado_0,
+                                              img_bounds_RelevoSombreado_0,
+                                              {pane: 'pane_RelevoSombreado_0'});
+        bounds_group.addLayer(layer_RelevoSombreado_0);
+   //     map.addLayer(layer_RelevoSombreado_0);
+        map.createPane('pane_Relevo_Sombreado_batimetria_1');
+        map.getPane('pane_Relevo_Sombreado_batimetria_1').style.zIndex = 401;
+        var img_Relevo_Sombreado_batimetria_1 = 'data/Relevo_Sombreado_batimetria_1.png';
+        var img_bounds_Relevo_Sombreado_batimetria_1 = [[-22.269231252,-40.960927318],[-18.334231251999945,-37.43092731800006]];
+        var layer_Relevo_Sombreado_batimetria_1 = new L.imageOverlay(img_Relevo_Sombreado_batimetria_1,
+                                              img_bounds_Relevo_Sombreado_batimetria_1,
+                                              {pane: 'pane_Relevo_Sombreado_batimetria_1'});
+        bounds_group.addLayer(layer_Relevo_Sombreado_batimetria_1);
+  //      map.addLayer(layer_Relevo_Sombreado_batimetria_1);
+        map.createPane('pane_Hipsometriam_2');
+        map.getPane('pane_Hipsometriam_2').style.zIndex = 402;
+        var img_Hipsometriam_2 = 'data/Hipsometriam_2.png';
+        var img_bounds_Hipsometriam_2 = [[-22.270416286,-41.87958241],[-17.892082845999973,-28.847915427999947]];
+        var layer_Hipsometriam_2 = new L.imageOverlay(img_Hipsometriam_2,
+                                              img_bounds_Hipsometriam_2,
+                                              {pane: 'pane_Hipsometriam_2'});
+        bounds_group.addLayer(layer_Hipsometriam_2);
+    //    map.addLayer(layer_Hipsometriam_2);
+        function pop_CurvasBatimtricas_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">PROFUNDIDA</th>\
+                        <td>' + (feature.properties['PROFUNDIDA'] !== null ? autolinker.link(feature.properties['PROFUNDIDA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CurvasBatimtricas_3_0(feature) {
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -6500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -5250.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(8,48,107,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -5250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4750.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(10,84,158,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -4750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4250.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(33,114,182,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -4250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4000.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(62,142,196,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -4000.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3500.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(96,166,210,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -3500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3250.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(137,191,221,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -3250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -2750.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(176,210,232,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -2750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -1500.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(205,224,242,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -1500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -75.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(226,238,249,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['to_int("PROFUNDIDA")'] >= -75.000000 && feature.properties['to_int("PROFUNDIDA")'] <= 0.000000 ) {
+                return {
+                pane: 'pane_CurvasBatimtricas_3',
+                opacity: 1,
+                color: 'rgba(247,251,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_CurvasBatimtricas_3');
+        map.getPane('pane_CurvasBatimtricas_3').style.zIndex = 403;
+        map.getPane('pane_CurvasBatimtricas_3').style['mix-blend-mode'] = 'normal';
+        var layer_CurvasBatimtricas_3 = new L.geoJson(json_CurvasBatimtricas_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CurvasBatimtricas_3',
+            layerName: 'layer_CurvasBatimtricas_3',
+            pane: 'pane_CurvasBatimtricas_3',
+            onEachFeature: pop_CurvasBatimtricas_3,
+            style: style_CurvasBatimtricas_3_0,
+        });
+        bounds_group.addLayer(layer_CurvasBatimtricas_3);
+    //    map.addLayer(layer_CurvasBatimtricas_3);
+        map.createPane('pane_Batimetriam_4');
+        map.getPane('pane_Batimetriam_4').style.zIndex = 404;
+        var img_Batimetriam_4 = 'data/Batimetriam_4.png';
+        var img_bounds_Batimetriam_4 = [[-22.269231252,-40.960927318],[-18.334231251999945,-37.43092731800006]];
+        var layer_Batimetriam_4 = new L.imageOverlay(img_Batimetriam_4,
+                                              img_bounds_Batimetriam_4,
+                                              {pane: 'pane_Batimetriam_4'});
+        bounds_group.addLayer(layer_Batimetriam_4);
+   //     map.addLayer(layer_Batimetriam_4);
+//Fim de Aspectos Fisiográficos
+                var baseMaps = {};
+                //FIM DO MODELO
+                //Fim Bases Cartográficas
+                var osmGeocoder = new L.Control.Geocoder({
+                    collapsed: true,
+                    position: 'topleft',
+                    text: 'Search',
+                    title: 'Testing'
+                }).addTo(map);
+                document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+                    .className += ' fa fa-search';
+                document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+                    .title += 'Search for a place';
+                ESRI = new L.TileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}');
+
+                //	map.addLayer(ESRI);
+
+                var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+
+                    zoom: 8,
+                    center: L.latLng([-5.79448, -35.211]),
+                });
+                map.addLayer(Esri_WorldImagery);
+                //TREE
+
+                var hasAllUnSelected = function () {
+                    return function (ev, domNode, treeNode, map) {
+                        var anySelected = false;
+                        function iterate(node) {
+                            if (node.layer && !node.radioGroup) {
+                                anySelected = anySelected || map.hasLayer(node.layer);
+                            }
+                            if (node.children && !anySelected) {
+                                node.children.forEach(function (element) {iterate(element);});
+                            }
+                        }
+                        iterate(treeNode);
+                        return !anySelected;
+                    };
+                };
+
+
+                var osm2 = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+                    name: 'osm',
+                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                });
+
+                var mqo2 = L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=rU7J91f2OChgj5vRst1v', {
+                    name: 'mapquest',
+                    attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/">MapQuest</a>',
+                    subdomains: '1234'
+                });
+
+                // ADICIONA O Minimap
+
+                var miniMap = new L.Control.MiniMap(mqo2, {toggleDisplay: true}).addTo(map);
+
+
+                var Basemaps = [
+
+
+                    {
+                        openedSymbol: true,
+                        collapsed: false,
+                        label: 'Mapas Base',
+
+                        children: [
+
+                            {label: 'OpenStreetMap', layer: osm2, name: 'osm'},
+                            {label: 'MapQuest', layer: mqo2, name: 'mapquest'},
+                            {label: 'Esri', layer: Esri_WorldImagery, name: 'Esri'},
+
+
+                        ]
+                    },
+
+
+
+                ]
+
+
+
+
+
+
+                //teste fim
+
+
+                //FIM OVERLAYS
+                //FIM TREE
+                //Deixa aberto a lista de camadas sem o ícone de camadas
+                L.control.layers.tree(Basemaps, {
+                    openedSymbol: true,
+                    namedToggle: true,
+                    collapsed: false,
+                }).addTo(map);
+
+                /*        var ctl = L.control.layers.tree(null, overlaysTree,
+                            {
+                                namedToggle: true,
+                                collapsed: false,
+                            }).addTo(map);
+                
+                */
+
+                var baseMaps = {};
+                //    L.control.layers(baseMaps,{'<img src="legend/Poos_SIAGAS_12.png" /> Poços_SIAGAS': layer_Poos_SIAGAS_12,'<img src="legend/Aerogeradores_11.png" /> Aerogeradores': layer_Aerogeradores_11,'<img src="legend/Cursos_d_gua_10.png" /> Cursos_d_água': layer_Cursos_d_gua_10,'<img src="legend/Vias_de_Acesso_9.png" /> Vias_de_Acesso': layer_Vias_de_Acesso_9,'<img src="legend/APP_30m_8.png" /> APP_30m': layer_APP_30m_8,'<img src="legend/APP_100m_7.png" /> APP_100m': layer_APP_100m_7,'<img src="legend/AventuraII_6.png" /> Aventura II': layer_AventuraII_6,'<img src="legend/AventuraIII_5.png" /> Aventura III': layer_AventuraIII_5,'<img src="legend/AventuraIV_4.png" /> Aventura IV': layer_AventuraIV_4,'<img src="legend/AventuraV_3.png" /> Aventura V': layer_AventuraV_3,'<img src="legend/Propriedades_2.png" /> Propriedades': layer_Propriedades_2,'<img src="legend/Poligonais_do_Canteiro_1.png" /> Poligonais_do_Canteiro': layer_Poligonais_do_Canteiro_1,'<img src="legend/Layout_acessos_e_bases_0.png" /> Layout_acessos_e_bases': layer_Layout_acessos_e_bases_0,}).addTo(map);
+                //   L.control.layers(baseMaps,{'<img src="legend/Armadilhas_4.png" /> Armadilhas': layer_Armadilhas_4,'<img src="legend/Herpetofauna_Set20_3.png" /> Herpetofauna_Set20': layer_Herpetofauna_Set20_3,'<img src="legend/Herpetofauna_Out20_2.png" /> Herpetofauna_Out20': layer_Herpetofauna_Out20_2,'<img src="legend/Herpetofauna_Dez20_1.png" /> Herpetofauna_Dez20': layer_Herpetofauna_Dez20_1,'<img src="legend/Busca_Ativa_0.png" /> Busca_Ativa': layer_Busca_Ativa_0,}).addTo(map);
+                //  L.control.layers(baseMaps,{'<img src="legend/Replantio_grif_0.png" /> Replantio_grif': layer_Replantio_grif_0,}).addTo(map);
+                //    L.control.layers(baseMaps,{'<img src="legend/Implantacao_Dez20_3.png" /> Implantacao_Dez20': layer_Implantacao_Dez20_3,'<img src="legend/Pre_Implantacao_jan20_2.png" /> Pre_Implantacao_jan20': layer_Pre_Implantacao_jan20_2,'<img src="legend/Implantacao_Set20_1.png" /> Implantacao_Set20': layer_Implantacao_Set20_1,'<img src="legend/Implantacao_Jun20_0.png" /> Implantacao_Jun20': layer_Implantacao_Jun20_0,}).addTo(map);
+
+                //Estações Solarimétricas
+                var layer_EspritoSanto_21 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Espírito Santo',
+                        layer: layer_EspritoSanto_2,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/EspritoSanto_2.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_EspritoSanto_21)
+
+                var layer_Municpios_11 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Municípios',
+                        layer: layer_Municpios_1,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/Municpios_1.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_Municpios_11)
+
+                var layer_VelocidadedosVentos100m_01 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (100m)',
+                        layer: layer_VelocidadedosVentos100m_0,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_VelocidadedosVentos100m_01)
+                //Fim Estações Solarimétricas
+
+                //Aspectos Fisiográficos
+                var layer_Batimetriam_41 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Batimetria',
+                        layer: layer_Batimetriam_4,
+                        elements: [{
+                            label: '',
+                            html: '<img src="images/batimetria.jpg" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_Batimetriam_41)
+
+                var layer_CurvasBatimtricas_31 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Curvas Batimétricas',
+                        layer: layer_CurvasBatimtricas_3,
+                        elements: [{
+                            label: '',
+                            html: '<img src="images/curvas_batimetricas.jpg" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_CurvasBatimtricas_31)
+
+                var layer_Hipsometriam_21 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Hipsometria',
+                        layer: layer_Hipsometriam_2,
+                        elements: [{
+                            label: '',
+                            html: '<img src="images/hipsometria.jpg" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_Hipsometriam_21)
+                //Fim aspectos fisiográficos
+
+                // L.control.layers(baseMaps, {'<img src="legend/Pontos_de_Resgate_de_Fauna_0.png" /> Pontos_de_Resgate_de_Fauna': layer_Pontos_de_Resgate_de_Fauna_0, }).addTo(map);
+             
+                //Fim de Infraestrutura de Transportes
+
+                setBounds();
+            </script>
+        </body>
+
+        </html>
+        <!--FIM TESTE 01-->
+
+
+
+    </main>
+
+
+
+</body>
+
+</html>
+
+<style>
+    .check-label {
+        font-size: 13px;
+    }
+</style>

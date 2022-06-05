@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/filter.css">
+<link rel="stylesheet" href="css/nouislider.min.css">
+        <style>
+        #map {
+            width: 1126px;
+            height: 540px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/tailDT.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
+        <script src="data/Municpios_1.js"></script>
+        <script src="data/EspritoSanto_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-23.029978362443508,-46.3204679994048],[-16.480276580462608,-32.6367044251547]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_VelocidadedosVentos100m_0');
+        map.getPane('pane_VelocidadedosVentos100m_0').style.zIndex = 400;
+        var img_VelocidadedosVentos100m_0 = 'data/VelocidadedosVentos100m_0.png';
+        var img_bounds_VelocidadedosVentos100m_0 = [[-22.269231252,-41.878427318],[-17.894231251999972,-28.848427317999985]];
+        var layer_VelocidadedosVentos100m_0 = new L.imageOverlay(img_VelocidadedosVentos100m_0,
+                                              img_bounds_VelocidadedosVentos100m_0,
+                                              {pane: 'pane_VelocidadedosVentos100m_0'});
+        bounds_group.addLayer(layer_VelocidadedosVentos100m_0);
+        map.addLayer(layer_VelocidadedosVentos100m_0);
+        function pop_Municpios_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CD_MUN'] !== null ? autolinker.link(feature.properties['CD_MUN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_MUN'] !== null ? autolinker.link(feature.properties['NM_MUN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Municpios_1_0() {
+            return {
+                pane: 'pane_Municpios_1',
+                opacity: 1,
+                color: 'rgba(57,57,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Municpios_1');
+        map.getPane('pane_Municpios_1').style.zIndex = 401;
+        map.getPane('pane_Municpios_1').style['mix-blend-mode'] = 'normal';
+        var layer_Municpios_1 = new L.geoJson(json_Municpios_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Municpios_1',
+            layerName: 'layer_Municpios_1',
+            pane: 'pane_Municpios_1',
+            onEachFeature: pop_Municpios_1,
+            style: style_Municpios_1_0,
+        });
+        bounds_group.addLayer(layer_Municpios_1);
+        map.addLayer(layer_Municpios_1);
+        function pop_EspritoSanto_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CD_UF'] !== null ? autolinker.link(feature.properties['CD_UF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_UF'] !== null ? autolinker.link(feature.properties['NM_UF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SIGLA_UF'] !== null ? autolinker.link(feature.properties['SIGLA_UF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_REGIAO'] !== null ? autolinker.link(feature.properties['NM_REGIAO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EspritoSanto_2_0() {
+            return {
+                pane: 'pane_EspritoSanto_2',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_EspritoSanto_2');
+        map.getPane('pane_EspritoSanto_2').style.zIndex = 402;
+        map.getPane('pane_EspritoSanto_2').style['mix-blend-mode'] = 'normal';
+        var layer_EspritoSanto_2 = new L.geoJson(json_EspritoSanto_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_EspritoSanto_2',
+            layerName: 'layer_EspritoSanto_2',
+            pane: 'pane_EspritoSanto_2',
+            onEachFeature: pop_EspritoSanto_2,
+            style: style_EspritoSanto_2_0,
+        });
+        bounds_group.addLayer(layer_EspritoSanto_2);
+        map.addLayer(layer_EspritoSanto_2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/EspritoSanto_2.png" /> Espírito Santo': layer_EspritoSanto_2,'<img src="legend/Municpios_1.png" /> Municípios': layer_Municpios_1,"Velocidade dos Ventos (100m)": layer_VelocidadedosVentos100m_0,}).addTo(map);
+        setBounds();
+        var mapDiv = document.getElementById('map');
+        var row = document.createElement('div');
+        row.className="row";
+        row.id="all";
+        row.style.height = "100%";
+        var col1 = document.createElement('div');
+        col1.className="col9";
+        col1.id = "mapWindow";
+        col1.style.height = "99%";
+        col1.style.width = "80%";
+        col1.style.display = "inline-block";
+        var col2 = document.createElement('div');
+        col2.className="col3";
+        col2.id = "menu";
+        col2.style.display = "inline-block";
+        mapDiv.parentNode.insertBefore(row, mapDiv);
+        document.getElementById("all").appendChild(col1);
+        document.getElementById("all").appendChild(col2);
+        col1.appendChild(mapDiv)
+        var Filters = {"CD_MUN": "str"};
+        function filterFunc() {
+          map.eachLayer(function(lyr){
+          if ("options" in lyr && "dataVar" in lyr["options"]){
+            features = this[lyr["options"]["dataVar"]].features.slice(0);
+            try{
+              for (key in Filters){
+                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
+                if (Filters[key] == "str" || Filters[key] == "bool"){
+                  var selection = [];
+                  var options = document.getElementById("sel_" + keyS).options
+                  for (var i=0; i < options.length; i++) {
+                    if (options[i].selected) selection.push(options[i].value);
+                  }
+                    try{
+                      if (key in features[0].properties){
+                        for (i = features.length - 1;
+                          i >= 0; --i){
+                          if (selection.indexOf(
+                          features[i].properties[key])<0
+                          && selection.length>0) {
+                          features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                  }
+                }
+                if (Filters[key] == "int"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (parseInt(features[i].properties[key])
+                          < sliderVals[0]
+                          || parseInt(features[i].properties[key])
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "real"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (features[i].properties[key]
+                          < sliderVals[0]
+                          || features[i].properties[key]
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "date"
+                  || Filters[key] == "datetime"
+                  || Filters[key] == "time"){
+                  try{
+                    if (key in features[0].properties){
+                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
+                      startdate = document.getElementById("dat_" +
+                        HTMLkey + "_date1").value.replace(" ", "T");
+                      enddate = document.getElementById("dat_" +
+                        HTMLkey + "_date2").value.replace(" ", "T");
+                      for (i = features.length - 1; i >= 0; --i){
+                        if (features[i].properties[key] < startdate
+                          || features[i].properties[key] > enddate){
+                          features.splice(i,1);
+                        }
+                      }
+                    }
+                  } catch(err){
+                  }
+                }
+              }
+            } catch(err){
+            }
+          this[lyr["options"]["layerName"]].clearLayers();
+          this[lyr["options"]["layerName"]].addData(features);
+          }
+          })
+        }
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_CD_MUN = document.createElement('div');
+            div_CD_MUN.id = "div_CD_MUN";
+            div_CD_MUN.className= "filterselect";
+            document.getElementById("menu").appendChild(div_CD_MUN);
+            sel_CD_MUN = document.createElement('select');
+            sel_CD_MUN.multiple = true;
+            sel_CD_MUN.size = 10;
+            sel_CD_MUN.id = "sel_CD_MUN";
+            var CD_MUN_options_str = "<option value='' unselected></option>";
+            sel_CD_MUN.onchange = function(){filterFunc()};
+            CD_MUN_options_str  += '<option value="3200102">3200102</option>';
+            CD_MUN_options_str  += '<option value="3200136">3200136</option>';
+            CD_MUN_options_str  += '<option value="3200169">3200169</option>';
+            CD_MUN_options_str  += '<option value="3200201">3200201</option>';
+            CD_MUN_options_str  += '<option value="3200300">3200300</option>';
+            CD_MUN_options_str  += '<option value="3200359">3200359</option>';
+            CD_MUN_options_str  += '<option value="3200409">3200409</option>';
+            CD_MUN_options_str  += '<option value="3200508">3200508</option>';
+            CD_MUN_options_str  += '<option value="3200607">3200607</option>';
+            CD_MUN_options_str  += '<option value="3200706">3200706</option>';
+            CD_MUN_options_str  += '<option value="3200805">3200805</option>';
+            CD_MUN_options_str  += '<option value="3200904">3200904</option>';
+            CD_MUN_options_str  += '<option value="3201001">3201001</option>';
+            CD_MUN_options_str  += '<option value="3201100">3201100</option>';
+            CD_MUN_options_str  += '<option value="3201159">3201159</option>';
+            CD_MUN_options_str  += '<option value="3201209">3201209</option>';
+            CD_MUN_options_str  += '<option value="3201308">3201308</option>';
+            CD_MUN_options_str  += '<option value="3201407">3201407</option>';
+            CD_MUN_options_str  += '<option value="3201506">3201506</option>';
+            CD_MUN_options_str  += '<option value="3201605">3201605</option>';
+            CD_MUN_options_str  += '<option value="3201704">3201704</option>';
+            CD_MUN_options_str  += '<option value="3201803">3201803</option>';
+            CD_MUN_options_str  += '<option value="3201902">3201902</option>';
+            CD_MUN_options_str  += '<option value="3202009">3202009</option>';
+            CD_MUN_options_str  += '<option value="3202108">3202108</option>';
+            CD_MUN_options_str  += '<option value="3202207">3202207</option>';
+            CD_MUN_options_str  += '<option value="3202256">3202256</option>';
+            CD_MUN_options_str  += '<option value="3202306">3202306</option>';
+            CD_MUN_options_str  += '<option value="3202405">3202405</option>';
+            CD_MUN_options_str  += '<option value="3202454">3202454</option>';
+            CD_MUN_options_str  += '<option value="3202504">3202504</option>';
+            CD_MUN_options_str  += '<option value="3202553">3202553</option>';
+            CD_MUN_options_str  += '<option value="3202603">3202603</option>';
+            CD_MUN_options_str  += '<option value="3202652">3202652</option>';
+            CD_MUN_options_str  += '<option value="3202702">3202702</option>';
+            CD_MUN_options_str  += '<option value="3202801">3202801</option>';
+            CD_MUN_options_str  += '<option value="3202900">3202900</option>';
+            CD_MUN_options_str  += '<option value="3203007">3203007</option>';
+            CD_MUN_options_str  += '<option value="3203056">3203056</option>';
+            CD_MUN_options_str  += '<option value="3203106">3203106</option>';
+            CD_MUN_options_str  += '<option value="3203130">3203130</option>';
+            CD_MUN_options_str  += '<option value="3203163">3203163</option>';
+            CD_MUN_options_str  += '<option value="3203205">3203205</option>';
+            CD_MUN_options_str  += '<option value="3203304">3203304</option>';
+            CD_MUN_options_str  += '<option value="3203320">3203320</option>';
+            CD_MUN_options_str  += '<option value="3203346">3203346</option>';
+            CD_MUN_options_str  += '<option value="3203353">3203353</option>';
+            CD_MUN_options_str  += '<option value="3203403">3203403</option>';
+            CD_MUN_options_str  += '<option value="3203502">3203502</option>';
+            CD_MUN_options_str  += '<option value="3203601">3203601</option>';
+            CD_MUN_options_str  += '<option value="3203700">3203700</option>';
+            CD_MUN_options_str  += '<option value="3203809">3203809</option>';
+            CD_MUN_options_str  += '<option value="3203908">3203908</option>';
+            CD_MUN_options_str  += '<option value="3204005">3204005</option>';
+            CD_MUN_options_str  += '<option value="3204054">3204054</option>';
+            CD_MUN_options_str  += '<option value="3204104">3204104</option>';
+            CD_MUN_options_str  += '<option value="3204203">3204203</option>';
+            CD_MUN_options_str  += '<option value="3204252">3204252</option>';
+            CD_MUN_options_str  += '<option value="3204302">3204302</option>';
+            CD_MUN_options_str  += '<option value="3204351">3204351</option>';
+            CD_MUN_options_str  += '<option value="3204401">3204401</option>';
+            CD_MUN_options_str  += '<option value="3204500">3204500</option>';
+            CD_MUN_options_str  += '<option value="3204559">3204559</option>';
+            CD_MUN_options_str  += '<option value="3204609">3204609</option>';
+            CD_MUN_options_str  += '<option value="3204658">3204658</option>';
+            CD_MUN_options_str  += '<option value="3204708">3204708</option>';
+            CD_MUN_options_str  += '<option value="3204807">3204807</option>';
+            CD_MUN_options_str  += '<option value="3204906">3204906</option>';
+            CD_MUN_options_str  += '<option value="3204955">3204955</option>';
+            CD_MUN_options_str  += '<option value="3205002">3205002</option>';
+            CD_MUN_options_str  += '<option value="3205010">3205010</option>';
+            CD_MUN_options_str  += '<option value="3205036">3205036</option>';
+            CD_MUN_options_str  += '<option value="3205069">3205069</option>';
+            CD_MUN_options_str  += '<option value="3205101">3205101</option>';
+            CD_MUN_options_str  += '<option value="3205150">3205150</option>';
+            CD_MUN_options_str  += '<option value="3205176">3205176</option>';
+            CD_MUN_options_str  += '<option value="3205200">3205200</option>';
+            CD_MUN_options_str  += '<option value="3205309">3205309</option>';
+            sel_CD_MUN.innerHTML = CD_MUN_options_str;
+            div_CD_MUN.appendChild(sel_CD_MUN);
+            var lab_CD_MUN = document.createElement('div');
+            lab_CD_MUN.innerHTML = 'CD_MUN';
+            lab_CD_MUN.className = 'filterlabel';
+            div_CD_MUN.appendChild(lab_CD_MUN);
+            var reset_CD_MUN = document.createElement('div');
+            reset_CD_MUN.innerHTML = 'clear filter';
+            reset_CD_MUN.className = 'filterlabel';
+            reset_CD_MUN.onclick = function() {
+                var options = document.getElementById("sel_CD_MUN").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_CD_MUN.appendChild(reset_CD_MUN);
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
