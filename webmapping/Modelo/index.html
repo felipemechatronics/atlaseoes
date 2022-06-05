@@ -152,13 +152,79 @@
                         </div>
                     </li>
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#aspectos_fisiograficos" aria-expanded="false">
-                    Aespectos Fisiográficos
+                        data-bs-target="#aspectos_fisiograficos" aria-expanded="false">
+                        Aespectos Fisiográficos
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="aspectos_fisiograficos">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'aspectos_fisiograficos'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
+                                    </div>
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#infraestrutura_de_energias" aria-expanded="false">
+                        Infraestrutura de Energias
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="infraestrutura_de_energias">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'infraestrutura_de_energias'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
+                                    </div>
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#infraestrutura_de_transportes" aria-expanded="false">
+                   Infraestrutura de Transportes
                 </button>
                 <li class="mb-1">
-                    <div class="collapse" id="aspectos_fisiograficos">
+                    <div class="collapse" id="infraestrutura_de_transportes">
                         <div v-for="layer in layers">
-                            <div v-if="layer.group == 'aspectos_fisiograficos'" class="input-group mb-3">
+                            <div v-if="layer.group == 'infraestrutura_de_transportes'" class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox"
+                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                            aria-label="Checkbox for following text input"
+                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                    </div>
+                                </div>
+                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+    
+
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#socio_ambiental" aria-expanded="false">
+                   Socioambiental
+                </button>
+                <li class="mb-1">
+                    <div class="collapse" id="socio_ambiental">
+                        <div v-for="layer in layers">
+                            <div v-if="layer.group == 'socio_ambiental'" class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
                                         <input type="checkbox"
@@ -173,8 +239,12 @@
                     </div>
                 </li>
 
+        
+
+
+
                 </ul>
-             
+
 
             </div>
 
@@ -199,6 +269,7 @@
             <link rel="stylesheet" href="css/leaflet-measure.css">
             <!--Árvore Nova-->
             <link rel="stylesheet" href="src/plugins/tree/L.Control.Layers.Tree.css" />
+
             <!--Fim Árvore Nova-->
 
             <style>
@@ -237,6 +308,8 @@
             <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
             <script src="js/leaflet-measure.js"></script>
             <script src="src/plugins/tree/L.Control.Layers.Tree.js"></script>
+            <script src="js/leaflet.wms.js"></script>
+
             <!--Minimap-->
             <link rel="stylesheet" href="src/Control.MiniMap.css" />
             <script src="src/Control.MiniMap.js" type="text/javascript"></script>
@@ -262,7 +335,7 @@
 
 
             <!--Socio Ambiental-->
-          
+
 
 
             <!--Fim de Estacoes Solarimetricas-->
@@ -308,17 +381,53 @@
                             "layers": [
 
                                 //Recurso EólicoEs
-                                
+
                                 //Recurso Solar
                                 {'layer': layer_Municpios_1, group: 'recurso_eolico', label: 'Municípios', 'name': 'municipios', needBeAlone: false},
                                 {'layer': layer_EspritoSanto_2, group: 'recurso_eolico', label: 'Espírito Santo', 'name': 'es', needBeAlone: false},
                                 {'layer': layer_VelocidadedosVentos100m_0, group: 'recurso_eolico', label: 'Velocidade dos Ventos 100m', 'name': 'velocidade_dos_ventos', needBeAlone: false},
-
+                                //Aspectos Fisiograficos
                                 {'layer': layer_Batimetriam_4, group: 'aspectos_fisiograficos', label: 'Batimetria', 'name': 'batimetria', needBeAlone: false},
                                 {'layer': layer_CurvasBatimtricas_3, group: 'aspectos_fisiograficos', label: 'Curvas Batimétricas', 'name': 'curvas_batimetricas', needBeAlone: false},
                                 {'layer': layer_Hipsometriam_2, group: 'aspectos_fisiograficos', label: 'Hipsometria', 'name': 'hipsometria', needBeAlone: false},
                                 {'layer': layer_Relevo_Sombreado_batimetria_1, group: 'aspectos_fisiograficos', label: 'Relevo Sombreado Batimetria', 'name': 'relevo_sombreado_batimetria', needBeAlone: false},
                                 {'layer': layer_RelevoSombreado_0, group: 'aspectos_fisiograficos', label: 'Relevo Sombreado', 'name': 'relevo_sombreado', needBeAlone: false},
+                                //Infraestrutura de Energias
+                                {'layer': layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2, group: 'infraestrutura_de_energias', label: 'Aerogeradores SG 10.0-193DD-193DD', 'name': 'Aerogeradores SG 10.0-193DD-193DD', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3, group: 'infraestrutura_de_energias', label: 'Aerogeradores WEC 265 20MW', 'name': ' Aerogeradores WEC 265 20MW', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15, group: 'infraestrutura_de_energias', label: 'Linhas de Transmissão Existente', 'name': 'Linhas de Transmissão Existente', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16, group: 'infraestrutura_de_energias', label: 'Linhas de Transmissão Planejadas', 'name': 'Linhas de Transmissão Planejadas', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17, group: 'infraestrutura_de_energias', label: 'Poligonal ES-01-VOTU WINDS', 'name': 'SECTIDES - AEOL - ES - POLIGONAL ES-01-VOTU WINDS', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18, group: 'infraestrutura_de_energias', label: ' Poligonal ES-02-VITORIA OFFSHORE', 'name': ' Poligonal ES-02-VITORIA OFFSHORE', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19, group: 'infraestrutura_de_energias', label: 'Poligonal ES-03-QUESNELIA', 'name': 'Poligonal ES-03-QUESNELIA', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25, group: 'infraestrutura_de_energias', label: 'Subestações Existentes', 'name': 'Subestações Existentes', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26, group: 'infraestrutura_de_energias', label: 'Subestações Planejadas', 'name': 'Subestações Planejadas', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27, group: 'infraestrutura_de_energias', label: 'Unidades de Conservação', 'name': 'Unidades de Conservação', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6, group: 'infraestrutura_de_energias', label: 'Blocos Exploratórios', 'name': 'Blocos Exploratórios', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7, group: 'infraestrutura_de_energias', label: 'Campos Exploratórios', 'name': 'Campos Exploratórios', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESCAMPOSDEPRODUO_8, group: 'infraestrutura_de_energias', label: 'Campos de Produção', 'name': 'Campos de Produção', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10, group: 'infraestrutura_de_energias', label: 'Dutos de Escoamento', 'name': 'Dutos de Escoamento', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESGASODUTO_12, group: 'infraestrutura_de_energias', label: 'Gasoduto', 'name': 'Gasoduto', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9, group: 'infraestrutura_de_energias', label: 'Dutos não Identificado', 'name': 'Dutos não Identificados', needBeAlone: false},
+
+                                //Infraestrutura de Transportes
+                                {'layer': layer_SECTIDESAEOLESAERDROMOS_1, group: 'infraestrutura_de_transportes', label: 'Aeródromos', 'name': 'Aeródromos', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESHIDROVIAS_13, group: 'infraestrutura_de_transportes', label: 'Hidrovias', 'name': 'Hidrovias', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESFERROVIASGEOBASES_11, group: 'infraestrutura_de_transportes', label: 'Ferrovias Geobases', 'name': 'Ferrovias Geobases', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESLINHASDECABOTAGEM_14, group: 'infraestrutura_de_transportes', label: 'Linhas de Cabotagem', 'name': 'Linhas de Cabotagem', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESPORTOS_20, group: 'infraestrutura_de_transportes', label: 'Portos', 'name': 'Portos', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESRODOVIASFEDERAIS_22, group: 'infraestrutura_de_transportes', label: 'Rodovias Federais', 'name': 'Rodovias Federais', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESRODOVIASGEOBASES_23, group: 'infraestrutura_de_transportes', label: 'Rodovias Geobases', 'name': 'Rodovias Geobases', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24, group: 'infraestrutura_de_transportes', label: 'Rodovias MAPBIOMAS', 'name': 'Rodovias MAPBIOMAS', needBeAlone: false},
+                                //Fim Infraestrutura de Transportes
+
+                                //Socioambiental
+                                {'layer': layer_SECTIDESAEOLESAIRIQUEZA_0, group: 'socio_ambiental', label: 'AI Riqueza', 'name': 'AI Riqueza', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESREASURBANAS_4, group: 'socio_ambiental', label: 'Áreas Urbanas', 'name': 'Áreas Urbanas', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESARQUEOLOGIA_5, group: 'socio_ambiental', label: 'Arqueologia', 'name': 'Arqueologia', needBeAlone: false},
+                                {'layer': layer_SECTIDESAEOLESQIOLOMBOLAS_21, group: 'socio_ambiental', label: 'Quilombola', 'name': 'Quilombola', needBeAlone: false},
+
+                                //fim socioambiental
 
                             ]
                         }
@@ -547,16 +656,16 @@
 
 
                 map.createPane('pane_VelocidadedosVentos100m_0');
-        map.getPane('pane_VelocidadedosVentos100m_0').style.zIndex = 400;
-        var img_VelocidadedosVentos100m_0 = 'data/VelocidadedosVentos100m_0.png';
-        var img_bounds_VelocidadedosVentos100m_0 = [[-22.269231252,-41.878427318],[-17.894231251999972,-28.848427317999985]];
-        var layer_VelocidadedosVentos100m_0 = new L.imageOverlay(img_VelocidadedosVentos100m_0,
-                                              img_bounds_VelocidadedosVentos100m_0,
-                                              {pane: 'pane_VelocidadedosVentos100m_0'});
-        bounds_group.addLayer(layer_VelocidadedosVentos100m_0);
-        map.addLayer(layer_VelocidadedosVentos100m_0);
-        function pop_Municpios_1(feature, layer) {
-            var popupContent = '<table>\
+                map.getPane('pane_VelocidadedosVentos100m_0').style.zIndex = 400;
+                var img_VelocidadedosVentos100m_0 = 'data/VelocidadedosVentos100m_0.png';
+                var img_bounds_VelocidadedosVentos100m_0 = [[-22.269231252, -41.878427318], [-17.894231251999972, -28.848427317999985]];
+                var layer_VelocidadedosVentos100m_0 = new L.imageOverlay(img_VelocidadedosVentos100m_0,
+                    img_bounds_VelocidadedosVentos100m_0,
+                    {pane: 'pane_VelocidadedosVentos100m_0'});
+                bounds_group.addLayer(layer_VelocidadedosVentos100m_0);
+                map.addLayer(layer_VelocidadedosVentos100m_0);
+                function pop_Municpios_1(feature, layer) {
+                    var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CD_MUN'] !== null ? autolinker.link(feature.properties['CD_MUN'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -564,39 +673,39 @@
                         <td colspan="2">' + (feature.properties['NM_MUN'] !== null ? autolinker.link(feature.properties['NM_MUN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
+                    layer.bindPopup(popupContent, {maxHeight: 400});
+                }
 
-        function style_Municpios_1_0() {
-            return {
-                pane: 'pane_Municpios_1',
-                opacity: 1,
-                color: 'rgba(57,57,57,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(125,139,143,0.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Municpios_1');
-        map.getPane('pane_Municpios_1').style.zIndex = 401;
-        map.getPane('pane_Municpios_1').style['mix-blend-mode'] = 'normal';
-        var layer_Municpios_1 = new L.geoJson(json_Municpios_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Municpios_1',
-            layerName: 'layer_Municpios_1',
-            pane: 'pane_Municpios_1',
-            onEachFeature: pop_Municpios_1,
-            style: style_Municpios_1_0,
-        });
-        bounds_group.addLayer(layer_Municpios_1);
-        function pop_EspritoSanto_2(feature, layer) {
-            var popupContent = '<table>\
+                function style_Municpios_1_0() {
+                    return {
+                        pane: 'pane_Municpios_1',
+                        opacity: 1,
+                        color: 'rgba(57,57,57,1.0)',
+                        dashArray: '',
+                        lineCap: 'butt',
+                        lineJoin: 'miter',
+                        weight: 1.0,
+                        fill: true,
+                        fillOpacity: 1,
+                        fillColor: 'rgba(125,139,143,0.0)',
+                        interactive: true,
+                    }
+                }
+                map.createPane('pane_Municpios_1');
+                map.getPane('pane_Municpios_1').style.zIndex = 401;
+                map.getPane('pane_Municpios_1').style['mix-blend-mode'] = 'normal';
+                var layer_Municpios_1 = new L.geoJson(json_Municpios_1, {
+                    attribution: '',
+                    interactive: true,
+                    dataVar: 'json_Municpios_1',
+                    layerName: 'layer_Municpios_1',
+                    pane: 'pane_Municpios_1',
+                    onEachFeature: pop_Municpios_1,
+                    style: style_Municpios_1_0,
+                });
+                bounds_group.addLayer(layer_Municpios_1);
+                function pop_EspritoSanto_2(feature, layer) {
+                    var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CD_UF'] !== null ? autolinker.link(feature.properties['CD_UF'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -610,233 +719,637 @@
                         <td colspan="2">' + (feature.properties['NM_REGIAO'] !== null ? autolinker.link(feature.properties['NM_REGIAO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
+                    layer.bindPopup(popupContent, {maxHeight: 400});
+                }
 
-        function style_EspritoSanto_2_0() {
-            return {
-                pane: 'pane_EspritoSanto_2',
-                opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(125,139,143,0.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_EspritoSanto_2');
-        map.getPane('pane_EspritoSanto_2').style.zIndex = 402;
-        map.getPane('pane_EspritoSanto_2').style['mix-blend-mode'] = 'normal';
-        var layer_EspritoSanto_2 = new L.geoJson(json_EspritoSanto_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_EspritoSanto_2',
-            layerName: 'layer_EspritoSanto_2',
-            pane: 'pane_EspritoSanto_2',
-            onEachFeature: pop_EspritoSanto_2,
-            style: style_EspritoSanto_2_0,
-        });
-        bounds_group.addLayer(layer_EspritoSanto_2);
-        map.addLayer(layer_EspritoSanto_2);
-       
-//Aspectos Fisiográficos
-map.createPane('pane_RelevoSombreado_0');
-        map.getPane('pane_RelevoSombreado_0').style.zIndex = 400;
-        var img_RelevoSombreado_0 = 'data/RelevoSombreado_0.png';
-        var img_bounds_RelevoSombreado_0 = [[-22.270416286,-41.87958241],[-17.892082845999973,-28.847915427999947]];
-        var layer_RelevoSombreado_0 = new L.imageOverlay(img_RelevoSombreado_0,
-                                              img_bounds_RelevoSombreado_0,
-                                              {pane: 'pane_RelevoSombreado_0'});
-        bounds_group.addLayer(layer_RelevoSombreado_0);
-   //     map.addLayer(layer_RelevoSombreado_0);
-        map.createPane('pane_Relevo_Sombreado_batimetria_1');
-        map.getPane('pane_Relevo_Sombreado_batimetria_1').style.zIndex = 401;
-        var img_Relevo_Sombreado_batimetria_1 = 'data/Relevo_Sombreado_batimetria_1.png';
-        var img_bounds_Relevo_Sombreado_batimetria_1 = [[-22.269231252,-40.960927318],[-18.334231251999945,-37.43092731800006]];
-        var layer_Relevo_Sombreado_batimetria_1 = new L.imageOverlay(img_Relevo_Sombreado_batimetria_1,
-                                              img_bounds_Relevo_Sombreado_batimetria_1,
-                                              {pane: 'pane_Relevo_Sombreado_batimetria_1'});
-        bounds_group.addLayer(layer_Relevo_Sombreado_batimetria_1);
-  //      map.addLayer(layer_Relevo_Sombreado_batimetria_1);
-        map.createPane('pane_Hipsometriam_2');
-        map.getPane('pane_Hipsometriam_2').style.zIndex = 402;
-        var img_Hipsometriam_2 = 'data/Hipsometriam_2.png';
-        var img_bounds_Hipsometriam_2 = [[-22.270416286,-41.87958241],[-17.892082845999973,-28.847915427999947]];
-        var layer_Hipsometriam_2 = new L.imageOverlay(img_Hipsometriam_2,
-                                              img_bounds_Hipsometriam_2,
-                                              {pane: 'pane_Hipsometriam_2'});
-        bounds_group.addLayer(layer_Hipsometriam_2);
-    //    map.addLayer(layer_Hipsometriam_2);
-        function pop_CurvasBatimtricas_3(feature, layer) {
-            var popupContent = '<table>\
+                function style_EspritoSanto_2_0() {
+                    return {
+                        pane: 'pane_EspritoSanto_2',
+                        opacity: 1,
+                        color: 'rgba(255,255,255,1.0)',
+                        dashArray: '',
+                        lineCap: 'butt',
+                        lineJoin: 'miter',
+                        weight: 1.0,
+                        fill: true,
+                        fillOpacity: 1,
+                        fillColor: 'rgba(125,139,143,0.0)',
+                        interactive: true,
+                    }
+                }
+                map.createPane('pane_EspritoSanto_2');
+                map.getPane('pane_EspritoSanto_2').style.zIndex = 402;
+                map.getPane('pane_EspritoSanto_2').style['mix-blend-mode'] = 'normal';
+                var layer_EspritoSanto_2 = new L.geoJson(json_EspritoSanto_2, {
+                    attribution: '',
+                    interactive: true,
+                    dataVar: 'json_EspritoSanto_2',
+                    layerName: 'layer_EspritoSanto_2',
+                    pane: 'pane_EspritoSanto_2',
+                    onEachFeature: pop_EspritoSanto_2,
+                    style: style_EspritoSanto_2_0,
+                });
+                bounds_group.addLayer(layer_EspritoSanto_2);
+                map.addLayer(layer_EspritoSanto_2);
+
+                //Aspectos Fisiográficos
+                map.createPane('pane_RelevoSombreado_0');
+                map.getPane('pane_RelevoSombreado_0').style.zIndex = 400;
+                var img_RelevoSombreado_0 = 'data/RelevoSombreado_0.png';
+                var img_bounds_RelevoSombreado_0 = [[-22.270416286, -41.87958241], [-17.892082845999973, -28.847915427999947]];
+                var layer_RelevoSombreado_0 = new L.imageOverlay(img_RelevoSombreado_0,
+                    img_bounds_RelevoSombreado_0,
+                    {pane: 'pane_RelevoSombreado_0'});
+                bounds_group.addLayer(layer_RelevoSombreado_0);
+                //     map.addLayer(layer_RelevoSombreado_0);
+                map.createPane('pane_Relevo_Sombreado_batimetria_1');
+                map.getPane('pane_Relevo_Sombreado_batimetria_1').style.zIndex = 401;
+                var img_Relevo_Sombreado_batimetria_1 = 'data/Relevo_Sombreado_batimetria_1.png';
+                var img_bounds_Relevo_Sombreado_batimetria_1 = [[-22.269231252, -40.960927318], [-18.334231251999945, -37.43092731800006]];
+                var layer_Relevo_Sombreado_batimetria_1 = new L.imageOverlay(img_Relevo_Sombreado_batimetria_1,
+                    img_bounds_Relevo_Sombreado_batimetria_1,
+                    {pane: 'pane_Relevo_Sombreado_batimetria_1'});
+                bounds_group.addLayer(layer_Relevo_Sombreado_batimetria_1);
+                //      map.addLayer(layer_Relevo_Sombreado_batimetria_1);
+                map.createPane('pane_Hipsometriam_2');
+                map.getPane('pane_Hipsometriam_2').style.zIndex = 402;
+                var img_Hipsometriam_2 = 'data/Hipsometriam_2.png';
+                var img_bounds_Hipsometriam_2 = [[-22.270416286, -41.87958241], [-17.892082845999973, -28.847915427999947]];
+                var layer_Hipsometriam_2 = new L.imageOverlay(img_Hipsometriam_2,
+                    img_bounds_Hipsometriam_2,
+                    {pane: 'pane_Hipsometriam_2'});
+                bounds_group.addLayer(layer_Hipsometriam_2);
+                //    map.addLayer(layer_Hipsometriam_2);
+                function pop_CurvasBatimtricas_3(feature, layer) {
+                    var popupContent = '<table>\
                     <tr>\
                         <th scope="row">PROFUNDIDA</th>\
                         <td>' + (feature.properties['PROFUNDIDA'] !== null ? autolinker.link(feature.properties['PROFUNDIDA'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
+                    layer.bindPopup(popupContent, {maxHeight: 400});
+                }
 
-        function style_CurvasBatimtricas_3_0(feature) {
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -6500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -5250.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(8,48,107,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -5250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4750.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(10,84,158,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -4750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4250.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(33,114,182,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -4250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4000.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(62,142,196,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -4000.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3500.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(96,166,210,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -3500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3250.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(137,191,221,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -3250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -2750.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(176,210,232,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -2750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -1500.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(205,224,242,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -1500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -75.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(226,238,249,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-            if (feature.properties['to_int("PROFUNDIDA")'] >= -75.000000 && feature.properties['to_int("PROFUNDIDA")'] <= 0.000000 ) {
-                return {
-                pane: 'pane_CurvasBatimtricas_3',
-                opacity: 1,
-                color: 'rgba(247,251,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_CurvasBatimtricas_3');
-        map.getPane('pane_CurvasBatimtricas_3').style.zIndex = 403;
-        map.getPane('pane_CurvasBatimtricas_3').style['mix-blend-mode'] = 'normal';
-        var layer_CurvasBatimtricas_3 = new L.geoJson(json_CurvasBatimtricas_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_CurvasBatimtricas_3',
-            layerName: 'layer_CurvasBatimtricas_3',
-            pane: 'pane_CurvasBatimtricas_3',
-            onEachFeature: pop_CurvasBatimtricas_3,
-            style: style_CurvasBatimtricas_3_0,
-        });
-        bounds_group.addLayer(layer_CurvasBatimtricas_3);
-    //    map.addLayer(layer_CurvasBatimtricas_3);
-        map.createPane('pane_Batimetriam_4');
-        map.getPane('pane_Batimetriam_4').style.zIndex = 404;
-        var img_Batimetriam_4 = 'data/Batimetriam_4.png';
-        var img_bounds_Batimetriam_4 = [[-22.269231252,-40.960927318],[-18.334231251999945,-37.43092731800006]];
-        var layer_Batimetriam_4 = new L.imageOverlay(img_Batimetriam_4,
-                                              img_bounds_Batimetriam_4,
-                                              {pane: 'pane_Batimetriam_4'});
-        bounds_group.addLayer(layer_Batimetriam_4);
-   //     map.addLayer(layer_Batimetriam_4);
-//Fim de Aspectos Fisiográficos
+                function style_CurvasBatimtricas_3_0(feature) {
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -6500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -5250.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(8,48,107,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -5250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4750.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(10,84,158,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -4750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4250.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(33,114,182,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -4250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -4000.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(62,142,196,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -4000.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3500.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(96,166,210,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -3500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -3250.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(137,191,221,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -3250.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -2750.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(176,210,232,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -2750.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -1500.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(205,224,242,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -1500.000000 && feature.properties['to_int("PROFUNDIDA")'] <= -75.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(226,238,249,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                    if (feature.properties['to_int("PROFUNDIDA")'] >= -75.000000 && feature.properties['to_int("PROFUNDIDA")'] <= 0.000000) {
+                        return {
+                            pane: 'pane_CurvasBatimtricas_3',
+                            opacity: 1,
+                            color: 'rgba(247,251,255,1.0)',
+                            dashArray: '',
+                            lineCap: 'square',
+                            lineJoin: 'bevel',
+                            weight: 1.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                        }
+                    }
+                }
+                map.createPane('pane_CurvasBatimtricas_3');
+                map.getPane('pane_CurvasBatimtricas_3').style.zIndex = 403;
+                map.getPane('pane_CurvasBatimtricas_3').style['mix-blend-mode'] = 'normal';
+                var layer_CurvasBatimtricas_3 = new L.geoJson(json_CurvasBatimtricas_3, {
+                    attribution: '',
+                    interactive: true,
+                    dataVar: 'json_CurvasBatimtricas_3',
+                    layerName: 'layer_CurvasBatimtricas_3',
+                    pane: 'pane_CurvasBatimtricas_3',
+                    onEachFeature: pop_CurvasBatimtricas_3,
+                    style: style_CurvasBatimtricas_3_0,
+                });
+                bounds_group.addLayer(layer_CurvasBatimtricas_3);
+                //    map.addLayer(layer_CurvasBatimtricas_3);
+                map.createPane('pane_Batimetriam_4');
+                map.getPane('pane_Batimetriam_4').style.zIndex = 404;
+                var img_Batimetriam_4 = 'data/Batimetriam_4.png';
+                var img_bounds_Batimetriam_4 = [[-22.269231252, -40.960927318], [-18.334231251999945, -37.43092731800006]];
+                var layer_Batimetriam_4 = new L.imageOverlay(img_Batimetriam_4,
+                    img_bounds_Batimetriam_4,
+                    {pane: 'pane_Batimetriam_4'});
+                bounds_group.addLayer(layer_Batimetriam_4);
+
+
+                //camadas novas wms
+
+                //infraestrutura de energias
+                map.createPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2');
+                map.getPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2').style.zIndex = 402;
+                var layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_SG_10_0_193DD", {
+                    pane: 'pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2);
+                map.createPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3');
+                map.getPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3').style.zIndex = 403;
+                var layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_WEC_265_20MW", {
+                    pane: 'pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15');
+                map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15').style.zIndex = 415;
+                var layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Existen", {
+                    pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //      map.addLayer(layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15);
+                map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16');
+                map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16').style.zIndex = 416;
+                var layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Planeja", {
+                    pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17');
+                map.getPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17').style.zIndex = 417;
+                var layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_01_Votu_Winds", {
+                    pane: 'pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //   map.addLayer(layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17);
+                map.createPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18');
+                map.getPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18').style.zIndex = 418;
+                var layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_02_Vitoria_Offsh", {
+                    pane: 'pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //     map.addLayer(layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18);
+                map.createPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19');
+                map.getPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19').style.zIndex = 419;
+                var layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_03_Quesnelia", {
+                    pane: 'pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25');
+                map.getPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25').style.zIndex = 425;
+                var layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Existentes", {
+                    pane: 'pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //      map.addLayer(layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25);
+                map.createPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26');
+                map.getPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26').style.zIndex = 426;
+                var layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Planejadas", {
+                    pane: 'pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //     map.addLayer(layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26);
+                map.createPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27');
+                map.getPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27').style.zIndex = 427;
+                var layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Unidades_de_Conservacao", {
+                    pane: 'pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6');
+                map.getPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6').style.zIndex = 406;
+                var layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_BLOCOS_EXPLORATORIOS_ES", {
+                    pane: 'pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6);
+                map.createPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7');
+                map.getPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7').style.zIndex = 407;
+                var layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_CAMPOS_EXPLORATORIOS_ES", {
+                    pane: 'pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                map.createPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8');
+                map.getPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8').style.zIndex = 408;
+                var layer_SECTIDESAEOLESCAMPOSDEPRODUO_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Campos_de_Producao", {
+                    pane: 'pane_SECTIDESAEOLESCAMPOSDEPRODUO_8',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10');
+                map.getPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10').style.zIndex = 410;
+                var layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Dutos_de_escoamento", {
+                    pane: 'pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                ///map.addLayer(layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10);
+
+                //      map.addLayer(layer_SECTIDESAEOLESFERROVIASGEOBASES_11);
+                map.createPane('pane_SECTIDESAEOLESGASODUTO_12');
+                map.getPane('pane_SECTIDESAEOLESGASODUTO_12').style.zIndex = 412;
+                var layer_SECTIDESAEOLESGASODUTO_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Gasoduto", {
+                    pane: 'pane_SECTIDESAEOLESGASODUTO_12',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                map.createPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9');
+                map.getPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9').style.zIndex = 409;
+                var layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Duto_Nao_Identificado", {
+                    pane: 'pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                //fim infraestruturadeenergias
+
+                //Infraestruturadetransportes
+                map.createPane('pane_SECTIDESAEOLESAERDROMOS_1');
+                map.getPane('pane_SECTIDESAEOLESAERDROMOS_1').style.zIndex = 401;
+                var layer_SECTIDESAEOLESAERDROMOS_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerodromos", {
+                    pane: 'pane_SECTIDESAEOLESAERDROMOS_1',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESHIDROVIAS_13');
+                map.getPane('pane_SECTIDESAEOLESHIDROVIAS_13').style.zIndex = 413;
+                var layer_SECTIDESAEOLESHIDROVIAS_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Hidrovias", {
+                    pane: 'pane_SECTIDESAEOLESHIDROVIAS_13',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11');
+                map.getPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11').style.zIndex = 411;
+                var layer_SECTIDESAEOLESFERROVIASGEOBASES_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Ferrovias_Geobases", {
+                    pane: 'pane_SECTIDESAEOLESFERROVIASGEOBASES_11',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14');
+                map.getPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14').style.zIndex = 414;
+                var layer_SECTIDESAEOLESLINHASDECABOTAGEM_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_Cabotagem", {
+                    pane: 'pane_SECTIDESAEOLESLINHASDECABOTAGEM_14',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                map.createPane('pane_SECTIDESAEOLESPORTOS_20');
+                map.getPane('pane_SECTIDESAEOLESPORTOS_20').style.zIndex = 420;
+                var layer_SECTIDESAEOLESPORTOS_20 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Portos", {
+                    pane: 'pane_SECTIDESAEOLESPORTOS_20',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22');
+                map.getPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22').style.zIndex = 422;
+                var layer_SECTIDESAEOLESRODOVIASFEDERAIS_22 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovia_Federal", {
+                    pane: 'pane_SECTIDESAEOLESRODOVIASFEDERAIS_22',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //      map.addLayer(layer_SECTIDESAEOLESRODOVIASFEDERAIS_22);
+                map.createPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23');
+                map.getPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23').style.zIndex = 423;
+                var layer_SECTIDESAEOLESRODOVIASGEOBASES_23 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_Geobases", {
+                    pane: 'pane_SECTIDESAEOLESRODOVIASGEOBASES_23',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24');
+                map.getPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24').style.zIndex = 424;
+                var layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_MapBiomas", {
+                    pane: 'pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                //fiminfraestruturadetransportes
+
+                //SocioAmbiental
+                map.createPane('pane_SECTIDESAEOLESAIRIQUEZA_0');
+                map.getPane('pane_SECTIDESAEOLESAIRIQUEZA_0').style.zIndex = 400;
+                var layer_SECTIDESAEOLESAIRIQUEZA_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_AI_Riqueza", {
+                    pane: 'pane_SECTIDESAEOLESAIRIQUEZA_0',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+
+
+                map.createPane('pane_SECTIDESAEOLESREASURBANAS_4');
+                map.getPane('pane_SECTIDESAEOLESREASURBANAS_4').style.zIndex = 404;
+                var layer_SECTIDESAEOLESREASURBANAS_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Areas_Urbanas", {
+                    pane: 'pane_SECTIDESAEOLESREASURBANAS_4',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_SECTIDESAEOLESREASURBANAS_4);
+                map.createPane('pane_SECTIDESAEOLESARQUEOLOGIA_5');
+                map.getPane('pane_SECTIDESAEOLESARQUEOLOGIA_5').style.zIndex = 405;
+                var layer_SECTIDESAEOLESARQUEOLOGIA_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Arqueologia", {
+                    pane: 'pane_SECTIDESAEOLESARQUEOLOGIA_5',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                map.createPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21');
+                map.getPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21').style.zIndex = 421;
+                var layer_SECTIDESAEOLESQIOLOMBOLAS_21 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Quilombolas_20_1_", {
+                    pane: 'pane_SECTIDESAEOLESQIOLOMBOLAS_21',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+
+                //fim Socioambiental
+
                 var baseMaps = {};
                 //FIM DO MODELO
                 //Fim Bases Cartográficas
@@ -1092,7 +1605,7 @@ map.createPane('pane_RelevoSombreado_0');
                 //Fim aspectos fisiográficos
 
                 // L.control.layers(baseMaps, {'<img src="legend/Pontos_de_Resgate_de_Fauna_0.png" /> Pontos_de_Resgate_de_Fauna': layer_Pontos_de_Resgate_de_Fauna_0, }).addTo(map);
-             
+
                 //Fim de Infraestrutura de Transportes
 
                 setBounds();

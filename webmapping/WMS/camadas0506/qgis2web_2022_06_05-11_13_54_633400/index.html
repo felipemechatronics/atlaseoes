@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1526px;
+            height: 851px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.wms.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-21.406701407995378,-43.47745590952116],[-18.386305178450918,-38.05568458581592]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_SECTIDESAEOLESAIRIQUEZA_0');
+        map.getPane('pane_SECTIDESAEOLESAIRIQUEZA_0').style.zIndex = 400;
+        var layer_SECTIDESAEOLESAIRIQUEZA_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_AI_Riqueza", {
+            pane: 'pane_SECTIDESAEOLESAIRIQUEZA_0',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESAIRIQUEZA_0);
+        map.createPane('pane_SECTIDESAEOLESAERDROMOS_1');
+        map.getPane('pane_SECTIDESAEOLESAERDROMOS_1').style.zIndex = 401;
+        var layer_SECTIDESAEOLESAERDROMOS_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerodromos", {
+            pane: 'pane_SECTIDESAEOLESAERDROMOS_1',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESAERDROMOS_1);
+        map.createPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2');
+        map.getPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2').style.zIndex = 402;
+        var layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_SG_10_0_193DD", {
+            pane: 'pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2);
+        map.createPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3');
+        map.getPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3').style.zIndex = 403;
+        var layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_WEC_265_20MW", {
+            pane: 'pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3);
+        map.createPane('pane_SECTIDESAEOLESREASURBANAS_4');
+        map.getPane('pane_SECTIDESAEOLESREASURBANAS_4').style.zIndex = 404;
+        var layer_SECTIDESAEOLESREASURBANAS_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Areas_Urbanas", {
+            pane: 'pane_SECTIDESAEOLESREASURBANAS_4',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESREASURBANAS_4);
+        map.createPane('pane_SECTIDESAEOLESARQUEOLOGIA_5');
+        map.getPane('pane_SECTIDESAEOLESARQUEOLOGIA_5').style.zIndex = 405;
+        var layer_SECTIDESAEOLESARQUEOLOGIA_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Arqueologia", {
+            pane: 'pane_SECTIDESAEOLESARQUEOLOGIA_5',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESARQUEOLOGIA_5);
+        map.createPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6');
+        map.getPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6').style.zIndex = 406;
+        var layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_BLOCOS_EXPLORATORIOS_ES", {
+            pane: 'pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6);
+        map.createPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7');
+        map.getPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7').style.zIndex = 407;
+        var layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_CAMPOS_EXPLORATORIOS_ES", {
+            pane: 'pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7);
+        map.createPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8');
+        map.getPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8').style.zIndex = 408;
+        var layer_SECTIDESAEOLESCAMPOSDEPRODUO_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Campos_de_Producao", {
+            pane: 'pane_SECTIDESAEOLESCAMPOSDEPRODUO_8',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESCAMPOSDEPRODUO_8);
+        map.createPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9');
+        map.getPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9').style.zIndex = 409;
+        var layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Duto_Nao_Identificado", {
+            pane: 'pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9);
+        map.createPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10');
+        map.getPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10').style.zIndex = 410;
+        var layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Dutos_de_escoamento", {
+            pane: 'pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10);
+        map.createPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11');
+        map.getPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11').style.zIndex = 411;
+        var layer_SECTIDESAEOLESFERROVIASGEOBASES_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Ferrovias_Geobases", {
+            pane: 'pane_SECTIDESAEOLESFERROVIASGEOBASES_11',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESFERROVIASGEOBASES_11);
+        map.createPane('pane_SECTIDESAEOLESGASODUTO_12');
+        map.getPane('pane_SECTIDESAEOLESGASODUTO_12').style.zIndex = 412;
+        var layer_SECTIDESAEOLESGASODUTO_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Gasoduto", {
+            pane: 'pane_SECTIDESAEOLESGASODUTO_12',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESGASODUTO_12);
+        map.createPane('pane_SECTIDESAEOLESHIDROVIAS_13');
+        map.getPane('pane_SECTIDESAEOLESHIDROVIAS_13').style.zIndex = 413;
+        var layer_SECTIDESAEOLESHIDROVIAS_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Hidrovias", {
+            pane: 'pane_SECTIDESAEOLESHIDROVIAS_13',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESHIDROVIAS_13);
+        map.createPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14');
+        map.getPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14').style.zIndex = 414;
+        var layer_SECTIDESAEOLESLINHASDECABOTAGEM_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_Cabotagem", {
+            pane: 'pane_SECTIDESAEOLESLINHASDECABOTAGEM_14',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESLINHASDECABOTAGEM_14);
+        map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15');
+        map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15').style.zIndex = 415;
+        var layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Existen", {
+            pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15);
+        map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16');
+        map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16').style.zIndex = 416;
+        var layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Planeja", {
+            pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16);
+        map.createPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17');
+        map.getPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17').style.zIndex = 417;
+        var layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_01_Votu_Winds", {
+            pane: 'pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17);
+        map.createPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18');
+        map.getPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18').style.zIndex = 418;
+        var layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_02_Vitoria_Offsh", {
+            pane: 'pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18);
+        map.createPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19');
+        map.getPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19').style.zIndex = 419;
+        var layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_03_Quesnelia", {
+            pane: 'pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19);
+        map.createPane('pane_SECTIDESAEOLESPORTOS_20');
+        map.getPane('pane_SECTIDESAEOLESPORTOS_20').style.zIndex = 420;
+        var layer_SECTIDESAEOLESPORTOS_20 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Portos", {
+            pane: 'pane_SECTIDESAEOLESPORTOS_20',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESPORTOS_20);
+        map.createPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21');
+        map.getPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21').style.zIndex = 421;
+        var layer_SECTIDESAEOLESQIOLOMBOLAS_21 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Quilombolas_20_1_", {
+            pane: 'pane_SECTIDESAEOLESQIOLOMBOLAS_21',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESQIOLOMBOLAS_21);
+        map.createPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22');
+        map.getPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22').style.zIndex = 422;
+        var layer_SECTIDESAEOLESRODOVIASFEDERAIS_22 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovia_Federal", {
+            pane: 'pane_SECTIDESAEOLESRODOVIASFEDERAIS_22',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESRODOVIASFEDERAIS_22);
+        map.createPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23');
+        map.getPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23').style.zIndex = 423;
+        var layer_SECTIDESAEOLESRODOVIASGEOBASES_23 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_Geobases", {
+            pane: 'pane_SECTIDESAEOLESRODOVIASGEOBASES_23',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESRODOVIASGEOBASES_23);
+        map.createPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24');
+        map.getPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24').style.zIndex = 424;
+        var layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_MapBiomas", {
+            pane: 'pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24);
+        map.createPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25');
+        map.getPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25').style.zIndex = 425;
+        var layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Existentes", {
+            pane: 'pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25);
+        map.createPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26');
+        map.getPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26').style.zIndex = 426;
+        var layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Planejadas", {
+            pane: 'pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26);
+        map.createPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27');
+        map.getPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27').style.zIndex = 427;
+        var layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Unidades_de_Conservacao", {
+            pane: 'pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        map.addLayer(layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{"SECTIDES - AEOL - ES - UNIDADES DE CONSERVAÇÃO": layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27,"SECTIDES - AEOL - ES - SUBESTAÇÕES PLANEJADAS": layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26,"SECTIDES - AEOL - ES - SUBESTAÇÕES EXISTENTES": layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25,"SECTIDES - AEOL - ES - RODOVIAS MAPBIOMAS": layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24,"SECTIDES - AEOL - ES - RODOVIAS GEOBASES": layer_SECTIDESAEOLESRODOVIASGEOBASES_23,"SECTIDES - AEOL - ES - RODOVIAS FEDERAIS": layer_SECTIDESAEOLESRODOVIASFEDERAIS_22,"SECTIDES - AEOL - ES - QIOLOMBOLAS": layer_SECTIDESAEOLESQIOLOMBOLAS_21,"SECTIDES - AEOL - ES - PORTOS": layer_SECTIDESAEOLESPORTOS_20,"SECTIDES - AEOL - ES - POLIGONAL ES-03-QUESNELIA": layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19,"SECTIDES - AEOL - ES - POLIGONAL ES-02-VITORIA OFFSHORE": layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18,"SECTIDES - AEOL - ES - POLIGONAL ES-01-VOTU WINDS": layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17,"SECTIDES - AEOL - ES - LINHAS DE TRANSMISSÃO PLANEJADAS": layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16,"SECTIDES - AEOL - ES - LINHAS DE TRANSMISSÃO EXISTENTES": layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15,"SECTIDES - AEOL - ES - LINHAS DE CABOTAGEM": layer_SECTIDESAEOLESLINHASDECABOTAGEM_14,"SECTIDES - AEOL - ES - HIDROVIAS": layer_SECTIDESAEOLESHIDROVIAS_13,"SECTIDES - AEOL - ES - GASODUTO": layer_SECTIDESAEOLESGASODUTO_12,"SECTIDES - AEOL - ES - FERROVIAS GEOBASES": layer_SECTIDESAEOLESFERROVIASGEOBASES_11,"SECTIDES - AEOL - ES - DUTOS DE ESCOAMENTO": layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10,"SECTIDES - AEOL - ES - DUTO NÃO IDENTIFICADO": layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9,"SECTIDES - AEOL - ES - CAMPOS DE PRODUÇÃO": layer_SECTIDESAEOLESCAMPOSDEPRODUO_8,"SECTIDES - AEOL - ES - CAMPOS EXPLORATÓRIOS": layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7,"SECTIDES - AEOL - ES - BLOCOS EXPLORATÓRIOS": layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6,"SECTIDES - AEOL - ES - ARQUEOLOGIA": layer_SECTIDESAEOLESARQUEOLOGIA_5,"SECTIDES - AEOL - ES - ÁREAS URBANAS": layer_SECTIDESAEOLESREASURBANAS_4,"SECTIDES - AEOL - ES - AEROGERADORES WEC 265 20MW": layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3,"SECTIDES - AEOL - ES - AEROGERADORES  SG 10.0-193DD-193DD": layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2,"SECTIDES - AEOL - ES - AERÓDROMOS": layer_SECTIDESAEOLESAERDROMOS_1,"SECTIDES - AEOL - ES - AI RIQUEZA": layer_SECTIDESAEOLESAIRIQUEZA_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
