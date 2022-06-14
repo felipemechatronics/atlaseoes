@@ -195,51 +195,51 @@
                         </div>
                     </li>
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#infraestrutura_de_transportes" aria-expanded="false">
-                   Infraestrutura de Transportes
-                </button>
-                <li class="mb-1">
-                    <div class="collapse" id="infraestrutura_de_transportes">
-                        <div v-for="layer in layers">
-                            <div v-if="layer.group == 'infraestrutura_de_transportes'" class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox"
-                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
-                                            aria-label="Checkbox for following text input"
-                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                        data-bs-target="#infraestrutura_de_transportes" aria-expanded="false">
+                        Infraestrutura de Transportes
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="infraestrutura_de_transportes">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'infraestrutura_de_transportes'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
                                     </div>
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                                 </div>
-                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                             </div>
                         </div>
-                    </div>
-                </li>
-    
+                    </li>
+
 
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#socio_ambiental" aria-expanded="false">
-                   Socioambiental
-                </button>
-                <li class="mb-1">
-                    <div class="collapse" id="socio_ambiental">
-                        <div v-for="layer in layers">
-                            <div v-if="layer.group == 'socio_ambiental'" class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox"
-                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
-                                            aria-label="Checkbox for following text input"
-                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                        data-bs-target="#socio_ambiental" aria-expanded="false">
+                        Socioambiental
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="socio_ambiental">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'socio_ambiental'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
                                     </div>
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                                 </div>
-                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-        
+
 
 
 
@@ -271,6 +271,11 @@
             <link rel="stylesheet" href="src/plugins/tree/L.Control.Layers.Tree.css" />
 
             <!--Fim Árvore Nova-->
+
+            <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+
+            <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+
 
             <style>
                 html,
@@ -318,6 +323,10 @@
             <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
             <script src="sidebars.js"></script>
             <!--Fim Bootstrap-->
+            <!--OmNivore Importar KML-->
+
+            <!--FIM OmNivore Importar KML-->
+
 
 
 
@@ -330,8 +339,11 @@
 
             <!--Aspectos Fisiograficos-->
             <script src="data/CurvasBatimtricas_3.js"></script>
-
+            <script
+                src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
             <!--Fim Aspectos-->
+            <script src="src/plugins/leaflet.browser.print-master/dist/leaflet.browser.print.min.js"></script>
+
 
 
             <!--Socio Ambiental-->
@@ -653,6 +665,13 @@
 
                 //
                 L.control.mousePosition().addTo(map);
+
+                //OMNIVORE KML IMPORT
+
+                //Print 
+                L.control.browserPrint({title: 'Atlas Eólico do Espírito Santo', documentTitle: 'Atlas Eólico do Espírito Santo'}).addTo(map);
+
+
 
 
                 map.createPane('pane_VelocidadedosVentos100m_0');
