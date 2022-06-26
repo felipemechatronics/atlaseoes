@@ -247,8 +247,18 @@
 
 
             </div>
+            <!--Input KML-->
 
+            <input type="file" id="i_file" value=""> 
+                <br>
+            <img src="" width="200" style="display:none;" />
+                    <br>
+            <div id="disp_tmp_path"></div>
+
+            <!-- FIM Input KML-->
         </div>
+
+
 
 
         <!--TESTE 01-->
@@ -271,11 +281,16 @@
             <link rel="stylesheet" href="src/plugins/tree/L.Control.Layers.Tree.css" />
 
             <!--Fim Árvore Nova-->
+            <!--Load KML-->
+            <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
 
             <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
 
             <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
 
+            <script
+                src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+            <!--Fim KML-->
 
             <style>
                 html,
@@ -297,6 +312,7 @@
 
             <div id="map">
             </div>
+
 
             <script src="js/qgis2web_expressions.js"></script>
             <script src="js/leaflet.js"></script>
@@ -323,9 +339,9 @@
             <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
             <script src="sidebars.js"></script>
             <!--Fim Bootstrap-->
-            <!--OmNivore Importar KML-->
-
-            <!--FIM OmNivore Importar KML-->
+            <!-- Importar KML-->
+            <script src="src/plugins/L.KML.js"></script>
+            <!--FIM  Importar KML-->
 
 
 
@@ -343,7 +359,8 @@
                 src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
             <!--Fim Aspectos-->
             <script src="src/plugins/leaflet.browser.print-master/dist/leaflet.browser.print.min.js"></script>
-
+            <script src="src/plugins/shp.js"></script>
+            <script src="src/plugins/shp.min.js"></script>
 
 
             <!--Socio Ambiental-->
@@ -493,6 +510,7 @@
                 })
 
             </script>
+
 
 
             <script>
@@ -667,6 +685,7 @@
                 L.control.mousePosition().addTo(map);
 
                 //OMNIVORE KML IMPORT
+
 
                 //Print 
                 L.control.browserPrint({title: 'Atlas Eólico do Espírito Santo', documentTitle: 'Atlas Eólico do Espírito Santo'}).addTo(map);
@@ -1716,7 +1735,7 @@
                 })
                 map.addControl(layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_161)
 
-                
+
                 var layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_171 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
@@ -1855,7 +1874,7 @@
                 })
                 map.addControl(layer_SECTIDESAEOLESUNIDADESDECONSERVAO_271)
 
-                
+
                 var layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_61 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
@@ -1925,7 +1944,7 @@
                 })
                 map.addControl(layer_SECTIDESAEOLESCAMPOSDEPRODUO_81)
 
-                
+
                 var layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_101 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
@@ -2157,7 +2176,7 @@
                 })
                 map.addControl(layer_SECTIDESAEOLESRODOVIASFEDERAIS_221)
 
-                
+
                 var layer_SECTIDESAEOLESRODOVIASGEOBASES_231 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
@@ -2251,7 +2270,7 @@
                 })
                 map.addControl(layer_SECTIDESAEOLESREASURBANAS_41)
 
-                
+
                 var layer_SECTIDESAEOLESARQUEOLOGIA_51 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
@@ -2306,7 +2325,62 @@
                 //Fim de Infraestrutura de Transportes
 
                 setBounds();
+
+        /*        function loadFile() {
+
+                    input = document.getElementById('fileinput');
+                    if (!input.files[0]) {
+                        bodyAppend("p", "Please select a file before clicking 'Load'");
+                    }
+                    else {
+                        file = input.files[0];
+
+                        fr = new FileReader();
+                      //  fr.onload = receiveBinary;
+                      fr.onload =  omnivore.kml(file).addTo(map);                    }
+
+
+                        fr.readAsArrayBuffer(file);
+                    }
+                    function receiveBinary() {
+                   //     file = input.files[0];
+                  //      result = fr.result
+                 //       path = fr.readAsArrayBuffer(file)
+                       // var shpfile = new L.Shapefile(result);
+                        // shpfile.addTo(mymap);
+                        omnivore.kml(path).addTo(map);                 
+                }
+*/
+
+/*
+$('#i_file').change( function(event) {
+var tmppath = URL.createObjectURL(event.target.files[0]);
+    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+    
+    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+
+});
+
+function enviar(){
+
+}
+*/
+const inputElement = document.getElementById("i_file");
+
+inputElement.addEventListener("change", handleFiles, false);
+function handleFiles() {
+    const selectedFile = document.getElementById('i_file').files[0];
+    const objectURL = window.URL.createObjectURL(selectedFile);
+    omnivore.kml(objectURL).addTo(map);                 
+
+}
+
+
+
+
             </script>
+
+
         </body>
 
         </html>
