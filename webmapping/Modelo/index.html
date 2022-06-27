@@ -129,15 +129,38 @@
         </svg>-->
                     <span class="fs-5 fw-semibold">Camadas</span>
                 </a>
+
                 <ul class="list-unstyled ps-0" id="search">
+
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#recurso_eolico" aria-expanded="false">
-                        Recurso Eolico
+                    data-bs-target="#recurso_eolico" aria-expanded="false">
+                    Recurso Eólico
+                </button>
+                <li class="mb-1">
+                    <div class="collapse" id="recurso_eolico">
+                        <div v-for="layer in layers">
+                            <div v-if="layer.group == 'recurso_eolico'" class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox"
+                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                            aria-label="Checkbox for following text input"
+                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                    </div>
+                                </div>
+                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#divisao_politica" aria-expanded="false">
+                        Divisão Política
                     </button>
                     <li class="mb-1">
-                        <div class="collapse" id="recurso_eolico">
+                        <div class="collapse" id="divisao_politica">
                             <div v-for="layer in layers">
-                                <div v-if="layer.group == 'recurso_eolico'" class="input-group mb-3">
+                                <div v-if="layer.group == 'divisao_politica'" class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
                                             <input type="checkbox"
@@ -151,6 +174,51 @@
                             </div>
                         </div>
                     </li>
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#infraestrutura_de_energias" aria-expanded="false">
+                    Infraestrutura de Energias
+                </button>
+                <li class="mb-1">
+                    <div class="collapse" id="infraestrutura_de_energias">
+                        <div v-for="layer in layers">
+                            <div v-if="layer.group == 'infraestrutura_de_energias'" class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox"
+                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                            aria-label="Checkbox for following text input"
+                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                    </div>
+                                </div>
+                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#infraestrutura_de_transportes" aria-expanded="false">
+                Infraestrutura de Transportes
+            </button>
+            <li class="mb-1">
+                <div class="collapse" id="infraestrutura_de_transportes">
+                    <div v-for="layer in layers">
+                        <div v-if="layer.group == 'infraestrutura_de_transportes'" class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox"
+                                        v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                        aria-label="Checkbox for following text input"
+                                        v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                </div>
+                            </div>
+                            <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+
+
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
                         data-bs-target="#aspectos_fisiograficos" aria-expanded="false">
                         Aespectos Fisiográficos
@@ -173,48 +241,9 @@
                         </div>
                     </li>
 
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#infraestrutura_de_energias" aria-expanded="false">
-                        Infraestrutura de Energias
-                    </button>
-                    <li class="mb-1">
-                        <div class="collapse" id="infraestrutura_de_energias">
-                            <div v-for="layer in layers">
-                                <div v-if="layer.group == 'infraestrutura_de_energias'" class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox"
-                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
-                                                aria-label="Checkbox for following text input"
-                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
-                                        </div>
-                                    </div>
-                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#infraestrutura_de_transportes" aria-expanded="false">
-                        Infraestrutura de Transportes
-                    </button>
-                    <li class="mb-1">
-                        <div class="collapse" id="infraestrutura_de_transportes">
-                            <div v-for="layer in layers">
-                                <div v-if="layer.group == 'infraestrutura_de_transportes'" class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox"
-                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
-                                                aria-label="Checkbox for following text input"
-                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
-                                        </div>
-                                    </div>
-                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                 
+               
+                  
 
 
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
@@ -240,7 +269,7 @@
                     </li>
 
 
-
+            
 
 
                 </ul>
@@ -404,7 +433,7 @@
                                 "value": "Mossoró",
                                 "type": "concentracao",
                                 "search": {
-                                    "camadas_selecionadas": ["es", "velocidade_dos_ventos"]
+                                    "camadas_selecionadas": ["es", "Velocidade a 100m Média Anual"]
                                 }
                             },
                             "layers": [
@@ -412,9 +441,9 @@
                                 //Recurso EólicoEs
 
                                 //Recurso Solar
-                                {'layer': layer_Municpios_1, group: 'recurso_eolico', label: 'Municípios', 'name': 'municipios', needBeAlone: false},
-                                {'layer': layer_EspritoSanto_2, group: 'recurso_eolico', label: 'Espírito Santo', 'name': 'es', needBeAlone: false},
-                                {'layer': layer_VelocidadedosVentos100m_0, group: 'recurso_eolico', label: 'Velocidade dos Ventos 100m', 'name': 'velocidade_dos_ventos', needBeAlone: false},
+                                {'layer': layer_Municpios_1, group: 'divisao_politica', label: 'Municípios', 'name': 'municipios', needBeAlone: false},
+                                {'layer': layer_EspritoSanto_2, group: 'divisao_politica', label: 'Espírito Santo', 'name': 'es', needBeAlone: false},
+                             //   {'layer': layer_VelocidadedosVentos100m_0, group: 'recurso_eolico', label: 'Velocidade dos Ventos 100m', 'name': 'velocidade_dos_ventos', needBeAlone: false},
                                 //Aspectos Fisiograficos
                                 {'layer': layer_Batimetriam_4, group: 'aspectos_fisiograficos', label: 'Batimetria', 'name': 'batimetria', needBeAlone: false},
                                 {'layer': layer_CurvasBatimtricas_3, group: 'aspectos_fisiograficos', label: 'Curvas Batimétricas', 'name': 'curvas_batimetricas', needBeAlone: false},
@@ -457,6 +486,26 @@
                                 {'layer': layer_SECTIDESAEOLESQIOLOMBOLAS_21, group: 'socio_ambiental', label: 'Quilombola', 'name': 'Quilombola', needBeAlone: false},
 
                                 //fim socioambiental
+
+
+                                //recurso eólico
+                                {'layer': layer_velocidadea200mveraom_s_14, group: 'recurso_eolico', label: 'Velocidade a 200m Verão', 'name': 'Velocidade a 200m Verão', needBeAlone: false},
+                                {'layer': layer_velocidadea200mprimaveram_s_13, group: 'recurso_eolico', label: 'Velocidade a 200m Primavera', 'name': ' Velocidade a 200m Primavera', needBeAlone: false},
+                                {'layer': layer_velocidadea200moutonom_s_12, group: 'recurso_eolico', label: 'Velocidade a 200m Outono', 'name': 'Velocidade a 200m Outono', needBeAlone: false},
+                                {'layer': layer_velocidadea200mivernom_s_11, group: 'recurso_eolico', label: 'Velocidade a 200m Inverno', 'name': 'Velocidade a 200m Inverno', needBeAlone: false},
+                                {'layer': layer_velocidadea200manualm_s_10, group: 'recurso_eolico', label: 'Velocidade a 200m Média Anual', 'name': 'Velocidade a 200m Média Anual', needBeAlone: false},
+                                {'layer': layer_velocidadea150mveraom_s_9, group: 'recurso_eolico', label: ' Velocidade a 150m Verão', 'name': ' Velocidade a 150m Verão', needBeAlone: false},
+                                {'layer': layer_velocidadea150mprimaveram_s_8, group: 'recurso_eolico', label: 'Velocidade a 150m Primavera', 'name': 'Velocidade a 150m Primavera', needBeAlone: false},
+                                {'layer': layer_velocidadea150moutonom_s_7, group: 'recurso_eolico', label: 'Velocidade a 150m Outono', 'name': 'Velocidade a 150m Outono', needBeAlone: false},
+                                {'layer': layer_velocidadea150minvernom_s_6, group: 'recurso_eolico', label: 'Velocidade a 150m Inverno', 'name': 'Velocidade a 150m Inverno', needBeAlone: false},
+                                {'layer': layer_velocidadea150manualm_s_5, group: 'recurso_eolico', label: 'Velocidade a 150m Média Anual', 'name': 'Velocidade a 150m Média Anual', needBeAlone: false},
+                                {'layer': layer_velocidadea100mveraom_s_4, group: 'recurso_eolico', label: 'Velocidade a 100m Verão', 'name': 'Velocidade a 100m Verão', needBeAlone: false},
+                                {'layer': layer_velocidadea100mprimaveram_s_3, group: 'recurso_eolico', label: 'Velocidade a 100m Primavera', 'name': 'Velocidade a 100m Primavera', needBeAlone: false},
+                                {'layer': layer_velocidadea100moutonom_s_2, group: 'recurso_eolico', label: 'Velocidade a 100m Outono', 'name': 'Velocidade a 100m Outono', needBeAlone: false},
+                                {'layer': layer_velocidadea100minvernom_s_1, group: 'recurso_eolico', label: 'Velocidade a 100m Inverno', 'name': 'Velocidade a 100m Inverno', needBeAlone: false},
+                                {'layer': layer_velocidadea100manualm_s_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'Velocidade a 100m Média Anual', needBeAlone: false},
+
+                                //fim recurso eólico
 
                             ]
                         }
@@ -701,7 +750,7 @@
                     img_bounds_VelocidadedosVentos100m_0,
                     {pane: 'pane_VelocidadedosVentos100m_0'});
                 bounds_group.addLayer(layer_VelocidadedosVentos100m_0);
-                map.addLayer(layer_VelocidadedosVentos100m_0);
+            //    map.addLayer(layer_VelocidadedosVentos100m_0);
                 function pop_Municpios_1(feature, layer) {
                     var popupContent = '<table>\
                     <tr>\
@@ -1387,6 +1436,233 @@
                 });
 
                 //fim Socioambiental
+
+                //Recurso Eólico
+                map.createPane('pane_velocidadea100manualm_s_0');
+        map.getPane('pane_velocidadea100manualm_s_0').style.zIndex = 400;
+        var layer_velocidadea100manualm_s_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_anual_m_s", {
+            pane: 'pane_velocidadea100manualm_s_0',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+        map.addLayer(layer_velocidadea100manualm_s_0);
+        map.createPane('pane_velocidadea100minvernom_s_1');
+        map.getPane('pane_velocidadea100minvernom_s_1').style.zIndex = 401;
+        var layer_velocidadea100minvernom_s_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_inverno_m_s", {
+            pane: 'pane_velocidadea100minvernom_s_1',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea100minvernom_s_1);
+        map.createPane('pane_velocidadea100moutonom_s_2');
+        map.getPane('pane_velocidadea100moutonom_s_2').style.zIndex = 402;
+        var layer_velocidadea100moutonom_s_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_outono_m_s", {
+            pane: 'pane_velocidadea100moutonom_s_2',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea100moutonom_s_2);
+        map.createPane('pane_velocidadea100mprimaveram_s_3');
+        map.getPane('pane_velocidadea100mprimaveram_s_3').style.zIndex = 403;
+        var layer_velocidadea100mprimaveram_s_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_primavera_m_s", {
+            pane: 'pane_velocidadea100mprimaveram_s_3',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea100mprimaveram_s_3);
+        map.createPane('pane_velocidadea100mveraom_s_4');
+        map.getPane('pane_velocidadea100mveraom_s_4').style.zIndex = 404;
+        var layer_velocidadea100mveraom_s_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_verao_m_s", {
+            pane: 'pane_velocidadea100mveraom_s_4',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea100mveraom_s_4);
+        map.createPane('pane_velocidadea150manualm_s_5');
+        map.getPane('pane_velocidadea150manualm_s_5').style.zIndex = 405;
+        var layer_velocidadea150manualm_s_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_anual_m_s", {
+            pane: 'pane_velocidadea150manualm_s_5',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+     //   map.addLayer(layer_velocidadea150manualm_s_5);
+        map.createPane('pane_velocidadea150minvernom_s_6');
+        map.getPane('pane_velocidadea150minvernom_s_6').style.zIndex = 406;
+        var layer_velocidadea150minvernom_s_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_inverno_m_s", {
+            pane: 'pane_velocidadea150minvernom_s_6',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+       // map.addLayer(layer_velocidadea150minvernom_s_6);
+        map.createPane('pane_velocidadea150moutonom_s_7');
+        map.getPane('pane_velocidadea150moutonom_s_7').style.zIndex = 407;
+        var layer_velocidadea150moutonom_s_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_outono_m_s", {
+            pane: 'pane_velocidadea150moutonom_s_7',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea150moutonom_s_7);
+        map.createPane('pane_velocidadea150mprimaveram_s_8');
+        map.getPane('pane_velocidadea150mprimaveram_s_8').style.zIndex = 408;
+        var layer_velocidadea150mprimaveram_s_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_primavera_m_s", {
+            pane: 'pane_velocidadea150mprimaveram_s_8',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea150mprimaveram_s_8);
+        map.createPane('pane_velocidadea150mveraom_s_9');
+        map.getPane('pane_velocidadea150mveraom_s_9').style.zIndex = 409;
+        var layer_velocidadea150mveraom_s_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_verao_m_s", {
+            pane: 'pane_velocidadea150mveraom_s_9',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea150mveraom_s_9);
+        map.createPane('pane_velocidadea200manualm_s_10');
+        map.getPane('pane_velocidadea200manualm_s_10').style.zIndex = 410;
+        var layer_velocidadea200manualm_s_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_anual_m_s", {
+            pane: 'pane_velocidadea200manualm_s_10',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+      //  map.addLayer(layer_velocidadea200manualm_s_10);
+        map.createPane('pane_velocidadea200mivernom_s_11');
+        map.getPane('pane_velocidadea200mivernom_s_11').style.zIndex = 411;
+        var layer_velocidadea200mivernom_s_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_iverno_m_s", {
+            pane: 'pane_velocidadea200mivernom_s_11',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+       // map.addLayer(layer_velocidadea200mivernom_s_11);
+        map.createPane('pane_velocidadea200moutonom_s_12');
+        map.getPane('pane_velocidadea200moutonom_s_12').style.zIndex = 412;
+        var layer_velocidadea200moutonom_s_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_outono_m_s", {
+            pane: 'pane_velocidadea200moutonom_s_12',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+       // map.addLayer(layer_velocidadea200moutonom_s_12);
+        map.createPane('pane_velocidadea200mprimaveram_s_13');
+        map.getPane('pane_velocidadea200mprimaveram_s_13').style.zIndex = 413;
+        var layer_velocidadea200mprimaveram_s_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_primavera_m_s", {
+            pane: 'pane_velocidadea200mprimaveram_s_13',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+       // map.addLayer(layer_velocidadea200mprimaveram_s_13);
+        map.createPane('pane_velocidadea200mveraom_s_14');
+        map.getPane('pane_velocidadea200mveraom_s_14').style.zIndex = 414;
+        var layer_velocidadea200mveraom_s_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_verao_m_s", {
+            pane: 'pane_velocidadea200mveraom_s_14',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
+            attribution: '',
+        });
+                //FIM Recurso Eólico
 
                 var baseMaps = {};
                 //FIM DO MODELO
