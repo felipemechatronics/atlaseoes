@@ -133,26 +133,26 @@
                 <ul class="list-unstyled ps-0" id="search">
 
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#recurso_eolico" aria-expanded="false">
-                    Recurso Eólico
-                </button>
-                <li class="mb-1">
-                    <div class="collapse" id="recurso_eolico">
-                        <div v-for="layer in layers">
-                            <div v-if="layer.group == 'recurso_eolico'" class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox"
-                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
-                                            aria-label="Checkbox for following text input"
-                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                        data-bs-target="#recurso_eolico" aria-expanded="false">
+                        Recurso Eólico
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="recurso_eolico">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'recurso_eolico'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
                                     </div>
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                                 </div>
-                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
                         data-bs-target="#divisao_politica" aria-expanded="false">
                         Divisão Política
@@ -175,48 +175,48 @@
                         </div>
                     </li>
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#infraestrutura_de_energias" aria-expanded="false">
-                    Infraestrutura de Energias
-                </button>
-                <li class="mb-1">
-                    <div class="collapse" id="infraestrutura_de_energias">
-                        <div v-for="layer in layers">
-                            <div v-if="layer.group == 'infraestrutura_de_energias'" class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox"
-                                            v-on:change="addOrRemoveLayer(layer.name, layer.name)"
-                                            aria-label="Checkbox for following text input"
-                                            v-model="data.search.camadas_selecionadas" :value="layer.name">
+                        data-bs-target="#infraestrutura_de_energias" aria-expanded="false">
+                        Infraestrutura de Energias
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="infraestrutura_de_energias">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'infraestrutura_de_energias'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
                                     </div>
-                                </div>
-                                <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                data-bs-target="#infraestrutura_de_transportes" aria-expanded="false">
-                Infraestrutura de Transportes
-            </button>
-            <li class="mb-1">
-                <div class="collapse" id="infraestrutura_de_transportes">
-                    <div v-for="layer in layers">
-                        <div v-if="layer.group == 'infraestrutura_de_transportes'" class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="checkbox"
-                                        v-on:change="addOrRemoveLayer(layer.name, layer.name)"
-                                        aria-label="Checkbox for following text input"
-                                        v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                                 </div>
                             </div>
-                            <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
                         </div>
-                    </div>
-                </div>
-            </li>
-            
+                    </li>
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#infraestrutura_de_transportes" aria-expanded="false">
+                        Infraestrutura de Transportes
+                    </button>
+                    <li class="mb-1">
+                        <div class="collapse" id="infraestrutura_de_transportes">
+                            <div v-for="layer in layers">
+                                <div v-if="layer.group == 'infraestrutura_de_transportes'" class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox"
+                                                v-on:change="addOrRemoveLayer(layer.name, layer.name)"
+                                                aria-label="Checkbox for following text input"
+                                                v-model="data.search.camadas_selecionadas" :value="layer.name">
+                                        </div>
+                                    </div>
+                                    <span class="check-label"><b>&nbsp;{{layer.label}}</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
 
 
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
@@ -241,9 +241,9 @@
                         </div>
                     </li>
 
-                 
-               
-                  
+
+
+
 
 
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
@@ -269,7 +269,7 @@
                     </li>
 
 
-            
+
 
 
                 </ul>
@@ -278,10 +278,10 @@
             </div>
             <!--Input KML-->
 
-            <input type="file" id="i_file" value=""> 
-                <br>
+            <input type="file" id="i_file" value="">
+            <br>
             <img src="" width="200" style="display:none;" />
-                    <br>
+            <br>
             <div id="disp_tmp_path"></div>
 
             <!-- FIM Input KML-->
@@ -311,7 +311,8 @@
 
             <!--Fim Árvore Nova-->
             <!--Load KML-->
-            <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+            <script
+                src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
 
             <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
 
@@ -433,7 +434,7 @@
                                 "value": "Mossoró",
                                 "type": "concentracao",
                                 "search": {
-                                    "camadas_selecionadas": ["es", "Velocidade a 100m Média Anual"]
+                                    "camadas_selecionadas": ["es", "velocidade_dos_ventos"]
                                 }
                             },
                             "layers": [
@@ -443,7 +444,6 @@
                                 //Recurso Solar
                                 {'layer': layer_Municpios_1, group: 'divisao_politica', label: 'Municípios', 'name': 'municipios', needBeAlone: false},
                                 {'layer': layer_EspritoSanto_2, group: 'divisao_politica', label: 'Espírito Santo', 'name': 'es', needBeAlone: false},
-                             //   {'layer': layer_VelocidadedosVentos100m_0, group: 'recurso_eolico', label: 'Velocidade dos Ventos 100m', 'name': 'velocidade_dos_ventos', needBeAlone: false},
                                 //Aspectos Fisiograficos
                                 {'layer': layer_Batimetriam_4, group: 'aspectos_fisiograficos', label: 'Batimetria', 'name': 'batimetria', needBeAlone: false},
                                 {'layer': layer_CurvasBatimtricas_3, group: 'aspectos_fisiograficos', label: 'Curvas Batimétricas', 'name': 'curvas_batimetricas', needBeAlone: false},
@@ -489,21 +489,24 @@
 
 
                                 //recurso eólico
-                                {'layer': layer_velocidadea200mveraom_s_14, group: 'recurso_eolico', label: 'Velocidade a 200m Verão', 'name': 'Velocidade a 200m Verão', needBeAlone: false},
-                                {'layer': layer_velocidadea200mprimaveram_s_13, group: 'recurso_eolico', label: 'Velocidade a 200m Primavera', 'name': ' Velocidade a 200m Primavera', needBeAlone: false},
-                                {'layer': layer_velocidadea200moutonom_s_12, group: 'recurso_eolico', label: 'Velocidade a 200m Outono', 'name': 'Velocidade a 200m Outono', needBeAlone: false},
-                                {'layer': layer_velocidadea200mivernom_s_11, group: 'recurso_eolico', label: 'Velocidade a 200m Inverno', 'name': 'Velocidade a 200m Inverno', needBeAlone: false},
-                                {'layer': layer_velocidadea200manualm_s_10, group: 'recurso_eolico', label: 'Velocidade a 200m Média Anual', 'name': 'Velocidade a 200m Média Anual', needBeAlone: false},
-                                {'layer': layer_velocidadea150mveraom_s_9, group: 'recurso_eolico', label: ' Velocidade a 150m Verão', 'name': ' Velocidade a 150m Verão', needBeAlone: false},
-                                {'layer': layer_velocidadea150mprimaveram_s_8, group: 'recurso_eolico', label: 'Velocidade a 150m Primavera', 'name': 'Velocidade a 150m Primavera', needBeAlone: false},
-                                {'layer': layer_velocidadea150moutonom_s_7, group: 'recurso_eolico', label: 'Velocidade a 150m Outono', 'name': 'Velocidade a 150m Outono', needBeAlone: false},
-                                {'layer': layer_velocidadea150minvernom_s_6, group: 'recurso_eolico', label: 'Velocidade a 150m Inverno', 'name': 'Velocidade a 150m Inverno', needBeAlone: false},
-                                {'layer': layer_velocidadea150manualm_s_5, group: 'recurso_eolico', label: 'Velocidade a 150m Média Anual', 'name': 'Velocidade a 150m Média Anual', needBeAlone: false},
-                                {'layer': layer_velocidadea100mveraom_s_4, group: 'recurso_eolico', label: 'Velocidade a 100m Verão', 'name': 'Velocidade a 100m Verão', needBeAlone: false},
-                                {'layer': layer_velocidadea100mprimaveram_s_3, group: 'recurso_eolico', label: 'Velocidade a 100m Primavera', 'name': 'Velocidade a 100m Primavera', needBeAlone: false},
-                                {'layer': layer_velocidadea100moutonom_s_2, group: 'recurso_eolico', label: 'Velocidade a 100m Outono', 'name': 'Velocidade a 100m Outono', needBeAlone: false},
-                                {'layer': layer_velocidadea100minvernom_s_1, group: 'recurso_eolico', label: 'Velocidade a 100m Inverno', 'name': 'Velocidade a 100m Inverno', needBeAlone: false},
-                                {'layer': layer_velocidadea100manualm_s_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'Velocidade a 100m Média Anual', needBeAlone: false},
+                                {'layer': layer_VelocidadedosVentos100m_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'velocidade_dos_ventos', needBeAlone: true},
+                                {'layer': layer_velocidadea100moutonom_s_2, group: 'recurso_eolico', label: 'Velocidade a 100m Outono', 'name': 'Velocidade a 100m Outono', needBeAlone: true},
+                                {'layer': layer_velocidadea100minvernom_s_1, group: 'recurso_eolico', label: 'Velocidade a 100m Inverno', 'name': 'Velocidade a 100m Inverno', needBeAlone: true},
+                                {'layer': layer_velocidadea100mprimaveram_s_3, group: 'recurso_eolico', label: 'Velocidade a 100m Primavera', 'name': 'Velocidade a 100m Primavera', needBeAlone: true},
+                                {'layer': layer_velocidadea100mveraom_s_4, group: 'recurso_eolico', label: 'Velocidade a 100m Verão', 'name': 'Velocidade a 100m Verão', needBeAlone: true},
+                                {'layer': layer_velocidadea150manualm_s_5, group: 'recurso_eolico', label: 'Velocidade a 150m Média Anual', 'name': 'Velocidade a 150m Média Anual', needBeAlone: true},
+                                {'layer': layer_velocidadea150moutonom_s_7, group: 'recurso_eolico', label: 'Velocidade a 150m Outono', 'name': 'Velocidade a 150m Outono', needBeAlone: true},
+                                {'layer': layer_velocidadea150minvernom_s_6, group: 'recurso_eolico', label: 'Velocidade a 150m Inverno', 'name': 'Velocidade a 150m Inverno', needBeAlone: true},
+                                {'layer': layer_velocidadea150mprimaveram_s_8, group: 'recurso_eolico', label: 'Velocidade a 150m Primavera', 'name': 'Velocidade a 150m Primavera', needBeAlone: true},
+                                {'layer': layer_velocidadea150mveraom_s_9, group: 'recurso_eolico', label: ' Velocidade a 150m Verão', 'name': ' Velocidade a 150m Verão', needBeAlone: true},
+
+                                {'layer': layer_velocidadea200manualm_s_10, group: 'recurso_eolico', label: 'Velocidade a 200m Média Anual', 'name': 'Velocidade a 200m Média Anual', needBeAlone: true},
+                                {'layer': layer_velocidadea200moutonom_s_12, group: 'recurso_eolico', label: 'Velocidade a 200m Outono', 'name': 'Velocidade a 200m Outono', needBeAlone: true},
+                                {'layer': layer_velocidadea200mivernom_s_11, group: 'recurso_eolico', label: 'Velocidade a 200m Inverno', 'name': 'Velocidade a 200m Inverno', needBeAlone: true},
+                                {'layer': layer_velocidadea200mprimaveram_s_13, group: 'recurso_eolico', label: 'Velocidade a 200m Primavera', 'name': ' Velocidade a 200m Primavera', needBeAlone: true},
+
+                                {'layer': layer_velocidadea200mveraom_s_14, group: 'recurso_eolico', label: 'Velocidade a 200m Verão', 'name': 'Velocidade a 200m Verão', needBeAlone: true},
+                                //  {'layer': layer_velocidadea100manualm_s_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'Velocidade a 100m Média Anual', ,needBeAlone: false},
 
                                 //fim recurso eólico
 
@@ -743,14 +746,61 @@
 
 
                 map.createPane('pane_VelocidadedosVentos100m_0');
-                map.getPane('pane_VelocidadedosVentos100m_0').style.zIndex = 400;
+                map.getPane('pane_VelocidadedosVentos100m_0').style.zIndex = 401;
                 var img_VelocidadedosVentos100m_0 = 'data/VelocidadedosVentos100m_0.png';
                 var img_bounds_VelocidadedosVentos100m_0 = [[-22.269231252, -41.878427318], [-17.894231251999972, -28.848427317999985]];
                 var layer_VelocidadedosVentos100m_0 = new L.imageOverlay(img_VelocidadedosVentos100m_0,
                     img_bounds_VelocidadedosVentos100m_0,
                     {pane: 'pane_VelocidadedosVentos100m_0'});
                 bounds_group.addLayer(layer_VelocidadedosVentos100m_0);
-            //    map.addLayer(layer_VelocidadedosVentos100m_0);
+                map.addLayer(layer_VelocidadedosVentos100m_0);
+                function pop_GRAFICOS_0(feature, layer) {
+                    var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">DISTWEIBUL</th>\
+                        <td>' + (feature.properties['DISTWEIBUL'] !== null ? autolinker.link(feature.properties['DISTWEIBUL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FREQ_DIR</th>\
+                        <td>' + (feature.properties['FREQ_DIR'] !== null ? autolinker.link(feature.properties['FREQ_DIR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FREQ_VEL</th>\
+                        <td>' + (feature.properties['FREQ_VEL'] !== null ? autolinker.link(feature.properties['FREQ_VEL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FREQ_DEN</th>\
+                        <td>' + (feature.properties['FREQ_DEN'] !== null ? autolinker.link(feature.properties['FREQ_DEN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MED_MEN</th>\
+                        <td>' + (feature.properties['MED_MEN'] !== null ? autolinker.link(feature.properties['MED_MEN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                </table>';
+                    layer.bindPopup(popupContent, {maxHeight: 400});
+                }
+
+                function style_GRAFICOS_0_0() {
+                    return {
+                        pane: 'pane_GRAFICOS_0',
+                        opacity: 1,
+                        color: 'rgba(35,35,35,0.0)',
+                        dashArray: '',
+                        lineCap: 'butt',
+                        lineJoin: 'miter',
+                        weight: 1.0,
+                        fill: true,
+                        fillOpacity: 1,
+                        fillColor: 'rgba(141,90,153,0.0)',
+                        interactive: true,
+                    }
+                }
+
+
                 function pop_Municpios_1(feature, layer) {
                     var popupContent = '<table>\
                     <tr>\
@@ -760,14 +810,14 @@
                         <td colspan="2">' + (feature.properties['NM_MUN'] !== null ? autolinker.link(feature.properties['NM_MUN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-                    layer.bindPopup(popupContent, {maxHeight: 400});
+                    layer.bindPopup(popupContent, {maxHeight: 520, maxWidth: 400});
                 }
 
                 function style_Municpios_1_0() {
                     return {
                         pane: 'pane_Municpios_1',
                         opacity: 1,
-                        color: 'rgba(57,57,57,1.0)',
+                        color: 'rgba(225,225,225,1.0)',
                         dashArray: '',
                         lineCap: 'butt',
                         lineJoin: 'miter',
@@ -779,7 +829,7 @@
                     }
                 }
                 map.createPane('pane_Municpios_1');
-                map.getPane('pane_Municpios_1').style.zIndex = 401;
+                map.getPane('pane_Municpios_1').style.zIndex = 400;
                 map.getPane('pane_Municpios_1').style['mix-blend-mode'] = 'normal';
                 var layer_Municpios_1 = new L.geoJson(json_Municpios_1, {
                     attribution: '',
@@ -841,7 +891,7 @@
 
                 //Aspectos Fisiográficos
                 map.createPane('pane_RelevoSombreado_0');
-                map.getPane('pane_RelevoSombreado_0').style.zIndex = 400;
+                map.getPane('pane_RelevoSombreado_0').style.zIndex = 403;
                 var img_RelevoSombreado_0 = 'data/RelevoSombreado_0.png';
                 var img_bounds_RelevoSombreado_0 = [[-22.270416286, -41.87958241], [-17.892082845999973, -28.847915427999947]];
                 var layer_RelevoSombreado_0 = new L.imageOverlay(img_RelevoSombreado_0,
@@ -850,7 +900,7 @@
                 bounds_group.addLayer(layer_RelevoSombreado_0);
                 //     map.addLayer(layer_RelevoSombreado_0);
                 map.createPane('pane_Relevo_Sombreado_batimetria_1');
-                map.getPane('pane_Relevo_Sombreado_batimetria_1').style.zIndex = 401;
+                map.getPane('pane_Relevo_Sombreado_batimetria_1').style.zIndex = 404;
                 var img_Relevo_Sombreado_batimetria_1 = 'data/Relevo_Sombreado_batimetria_1.png';
                 var img_bounds_Relevo_Sombreado_batimetria_1 = [[-22.269231252, -40.960927318], [-18.334231251999945, -37.43092731800006]];
                 var layer_Relevo_Sombreado_batimetria_1 = new L.imageOverlay(img_Relevo_Sombreado_batimetria_1,
@@ -859,7 +909,7 @@
                 bounds_group.addLayer(layer_Relevo_Sombreado_batimetria_1);
                 //      map.addLayer(layer_Relevo_Sombreado_batimetria_1);
                 map.createPane('pane_Hipsometriam_2');
-                map.getPane('pane_Hipsometriam_2').style.zIndex = 402;
+                map.getPane('pane_Hipsometriam_2').style.zIndex = 405;
                 var img_Hipsometriam_2 = 'data/Hipsometriam_2.png';
                 var img_bounds_Hipsometriam_2 = [[-22.270416286, -41.87958241], [-17.892082845999973, -28.847915427999947]];
                 var layer_Hipsometriam_2 = new L.imageOverlay(img_Hipsometriam_2,
@@ -1010,7 +1060,7 @@
                     }
                 }
                 map.createPane('pane_CurvasBatimtricas_3');
-                map.getPane('pane_CurvasBatimtricas_3').style.zIndex = 403;
+                map.getPane('pane_CurvasBatimtricas_3').style.zIndex = 406;
                 map.getPane('pane_CurvasBatimtricas_3').style['mix-blend-mode'] = 'normal';
                 var layer_CurvasBatimtricas_3 = new L.geoJson(json_CurvasBatimtricas_3, {
                     attribution: '',
@@ -1024,7 +1074,7 @@
                 bounds_group.addLayer(layer_CurvasBatimtricas_3);
                 //    map.addLayer(layer_CurvasBatimtricas_3);
                 map.createPane('pane_Batimetriam_4');
-                map.getPane('pane_Batimetriam_4').style.zIndex = 404;
+                map.getPane('pane_Batimetriam_4').style.zIndex = 407;
                 var img_Batimetriam_4 = 'data/Batimetriam_4.png';
                 var img_bounds_Batimetriam_4 = [[-22.269231252, -40.960927318], [-18.334231251999945, -37.43092731800006]];
                 var layer_Batimetriam_4 = new L.imageOverlay(img_Batimetriam_4,
@@ -1037,7 +1087,7 @@
 
                 //infraestrutura de energias
                 map.createPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2');
-                map.getPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2').style.zIndex = 402;
+                map.getPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2').style.zIndex = 408;
                 var layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_SG_10_0_193DD", {
                     pane: 'pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2',
                     format: 'image/png',
@@ -1051,7 +1101,7 @@
                 });
                 //  map.addLayer(layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2);
                 map.createPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3');
-                map.getPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3').style.zIndex = 403;
+                map.getPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3').style.zIndex = 409;
                 var layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_WEC_265_20MW", {
                     pane: 'pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3',
                     format: 'image/png',
@@ -1065,7 +1115,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15');
-                map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15').style.zIndex = 415;
+                map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15').style.zIndex = 410;
                 var layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Existen", {
                     pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15',
                     format: 'image/png',
@@ -1079,7 +1129,7 @@
                 });
                 //      map.addLayer(layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15);
                 map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16');
-                map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16').style.zIndex = 416;
+                map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16').style.zIndex = 411;
                 var layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Planeja", {
                     pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16',
                     format: 'image/png',
@@ -1093,7 +1143,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17');
-                map.getPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17').style.zIndex = 417;
+                map.getPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17').style.zIndex = 412;
                 var layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_01_Votu_Winds", {
                     pane: 'pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17',
                     format: 'image/png',
@@ -1107,7 +1157,7 @@
                 });
                 //   map.addLayer(layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17);
                 map.createPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18');
-                map.getPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18').style.zIndex = 418;
+                map.getPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18').style.zIndex = 413;
                 var layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_02_Vitoria_Offsh", {
                     pane: 'pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18',
                     format: 'image/png',
@@ -1121,7 +1171,7 @@
                 });
                 //     map.addLayer(layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18);
                 map.createPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19');
-                map.getPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19').style.zIndex = 419;
+                map.getPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19').style.zIndex = 414;
                 var layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_03_Quesnelia", {
                     pane: 'pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19',
                     format: 'image/png',
@@ -1135,7 +1185,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25');
-                map.getPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25').style.zIndex = 425;
+                map.getPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25').style.zIndex = 415;
                 var layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Existentes", {
                     pane: 'pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25',
                     format: 'image/png',
@@ -1149,7 +1199,7 @@
                 });
                 //      map.addLayer(layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25);
                 map.createPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26');
-                map.getPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26').style.zIndex = 426;
+                map.getPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26').style.zIndex = 416;
                 var layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Planejadas", {
                     pane: 'pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26',
                     format: 'image/png',
@@ -1163,7 +1213,7 @@
                 });
                 //     map.addLayer(layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26);
                 map.createPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27');
-                map.getPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27').style.zIndex = 427;
+                map.getPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27').style.zIndex = 417;
                 var layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Unidades_de_Conservacao", {
                     pane: 'pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27',
                     format: 'image/png',
@@ -1177,7 +1227,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6');
-                map.getPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6').style.zIndex = 406;
+                map.getPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6').style.zIndex = 418;
                 var layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_BLOCOS_EXPLORATORIOS_ES", {
                     pane: 'pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6',
                     format: 'image/png',
@@ -1191,7 +1241,7 @@
                 });
                 //  map.addLayer(layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6);
                 map.createPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7');
-                map.getPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7').style.zIndex = 407;
+                map.getPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7').style.zIndex = 419;
                 var layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_CAMPOS_EXPLORATORIOS_ES", {
                     pane: 'pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7',
                     format: 'image/png',
@@ -1204,7 +1254,7 @@
                     attribution: '',
                 });
                 map.createPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8');
-                map.getPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8').style.zIndex = 408;
+                map.getPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8').style.zIndex = 420;
                 var layer_SECTIDESAEOLESCAMPOSDEPRODUO_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Campos_de_Producao", {
                     pane: 'pane_SECTIDESAEOLESCAMPOSDEPRODUO_8',
                     format: 'image/png',
@@ -1218,7 +1268,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10');
-                map.getPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10').style.zIndex = 410;
+                map.getPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10').style.zIndex = 421;
                 var layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Dutos_de_escoamento", {
                     pane: 'pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10',
                     format: 'image/png',
@@ -1234,7 +1284,7 @@
 
                 //      map.addLayer(layer_SECTIDESAEOLESFERROVIASGEOBASES_11);
                 map.createPane('pane_SECTIDESAEOLESGASODUTO_12');
-                map.getPane('pane_SECTIDESAEOLESGASODUTO_12').style.zIndex = 412;
+                map.getPane('pane_SECTIDESAEOLESGASODUTO_12').style.zIndex = 422;
                 var layer_SECTIDESAEOLESGASODUTO_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Gasoduto", {
                     pane: 'pane_SECTIDESAEOLESGASODUTO_12',
                     format: 'image/png',
@@ -1247,7 +1297,7 @@
                     attribution: '',
                 });
                 map.createPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9');
-                map.getPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9').style.zIndex = 409;
+                map.getPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9').style.zIndex = 423;
                 var layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Duto_Nao_Identificado", {
                     pane: 'pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9',
                     format: 'image/png',
@@ -1264,7 +1314,7 @@
 
                 //Infraestruturadetransportes
                 map.createPane('pane_SECTIDESAEOLESAERDROMOS_1');
-                map.getPane('pane_SECTIDESAEOLESAERDROMOS_1').style.zIndex = 401;
+                map.getPane('pane_SECTIDESAEOLESAERDROMOS_1').style.zIndex = 424;
                 var layer_SECTIDESAEOLESAERDROMOS_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerodromos", {
                     pane: 'pane_SECTIDESAEOLESAERDROMOS_1',
                     format: 'image/png',
@@ -1278,7 +1328,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESHIDROVIAS_13');
-                map.getPane('pane_SECTIDESAEOLESHIDROVIAS_13').style.zIndex = 413;
+                map.getPane('pane_SECTIDESAEOLESHIDROVIAS_13').style.zIndex = 425;
                 var layer_SECTIDESAEOLESHIDROVIAS_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Hidrovias", {
                     pane: 'pane_SECTIDESAEOLESHIDROVIAS_13',
                     format: 'image/png',
@@ -1292,7 +1342,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11');
-                map.getPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11').style.zIndex = 411;
+                map.getPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11').style.zIndex = 426;
                 var layer_SECTIDESAEOLESFERROVIASGEOBASES_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Ferrovias_Geobases", {
                     pane: 'pane_SECTIDESAEOLESFERROVIASGEOBASES_11',
                     format: 'image/png',
@@ -1306,7 +1356,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14');
-                map.getPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14').style.zIndex = 414;
+                map.getPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14').style.zIndex = 427;
                 var layer_SECTIDESAEOLESLINHASDECABOTAGEM_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_Cabotagem", {
                     pane: 'pane_SECTIDESAEOLESLINHASDECABOTAGEM_14',
                     format: 'image/png',
@@ -1319,7 +1369,7 @@
                     attribution: '',
                 });
                 map.createPane('pane_SECTIDESAEOLESPORTOS_20');
-                map.getPane('pane_SECTIDESAEOLESPORTOS_20').style.zIndex = 420;
+                map.getPane('pane_SECTIDESAEOLESPORTOS_20').style.zIndex = 428;
                 var layer_SECTIDESAEOLESPORTOS_20 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Portos", {
                     pane: 'pane_SECTIDESAEOLESPORTOS_20',
                     format: 'image/png',
@@ -1333,7 +1383,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22');
-                map.getPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22').style.zIndex = 422;
+                map.getPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22').style.zIndex = 429;
                 var layer_SECTIDESAEOLESRODOVIASFEDERAIS_22 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovia_Federal", {
                     pane: 'pane_SECTIDESAEOLESRODOVIASFEDERAIS_22',
                     format: 'image/png',
@@ -1347,7 +1397,7 @@
                 });
                 //      map.addLayer(layer_SECTIDESAEOLESRODOVIASFEDERAIS_22);
                 map.createPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23');
-                map.getPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23').style.zIndex = 423;
+                map.getPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23').style.zIndex = 430;
                 var layer_SECTIDESAEOLESRODOVIASGEOBASES_23 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_Geobases", {
                     pane: 'pane_SECTIDESAEOLESRODOVIASGEOBASES_23',
                     format: 'image/png',
@@ -1361,7 +1411,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24');
-                map.getPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24').style.zIndex = 424;
+                map.getPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24').style.zIndex = 431;
                 var layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_MapBiomas", {
                     pane: 'pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24',
                     format: 'image/png',
@@ -1378,7 +1428,7 @@
 
                 //SocioAmbiental
                 map.createPane('pane_SECTIDESAEOLESAIRIQUEZA_0');
-                map.getPane('pane_SECTIDESAEOLESAIRIQUEZA_0').style.zIndex = 400;
+                map.getPane('pane_SECTIDESAEOLESAIRIQUEZA_0').style.zIndex = 432;
                 var layer_SECTIDESAEOLESAIRIQUEZA_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_AI_Riqueza", {
                     pane: 'pane_SECTIDESAEOLESAIRIQUEZA_0',
                     format: 'image/png',
@@ -1394,7 +1444,7 @@
 
 
                 map.createPane('pane_SECTIDESAEOLESREASURBANAS_4');
-                map.getPane('pane_SECTIDESAEOLESREASURBANAS_4').style.zIndex = 404;
+                map.getPane('pane_SECTIDESAEOLESREASURBANAS_4').style.zIndex = 433;
                 var layer_SECTIDESAEOLESREASURBANAS_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Areas_Urbanas", {
                     pane: 'pane_SECTIDESAEOLESREASURBANAS_4',
                     format: 'image/png',
@@ -1408,7 +1458,7 @@
                 });
                 //  map.addLayer(layer_SECTIDESAEOLESREASURBANAS_4);
                 map.createPane('pane_SECTIDESAEOLESARQUEOLOGIA_5');
-                map.getPane('pane_SECTIDESAEOLESARQUEOLOGIA_5').style.zIndex = 405;
+                map.getPane('pane_SECTIDESAEOLESARQUEOLOGIA_5').style.zIndex = 434;
                 var layer_SECTIDESAEOLESARQUEOLOGIA_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Arqueologia", {
                     pane: 'pane_SECTIDESAEOLESARQUEOLOGIA_5',
                     format: 'image/png',
@@ -1422,7 +1472,7 @@
                 });
 
                 map.createPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21');
-                map.getPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21').style.zIndex = 421;
+                map.getPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21').style.zIndex = 435;
                 var layer_SECTIDESAEOLESQIOLOMBOLAS_21 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Quilombolas_20_1_", {
                     pane: 'pane_SECTIDESAEOLESQIOLOMBOLAS_21',
                     format: 'image/png',
@@ -1439,229 +1489,229 @@
 
                 //Recurso Eólico
                 map.createPane('pane_velocidadea100manualm_s_0');
-        map.getPane('pane_velocidadea100manualm_s_0').style.zIndex = 400;
-        var layer_velocidadea100manualm_s_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_anual_m_s", {
-            pane: 'pane_velocidadea100manualm_s_0',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-        map.addLayer(layer_velocidadea100manualm_s_0);
-        map.createPane('pane_velocidadea100minvernom_s_1');
-        map.getPane('pane_velocidadea100minvernom_s_1').style.zIndex = 401;
-        var layer_velocidadea100minvernom_s_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_inverno_m_s", {
-            pane: 'pane_velocidadea100minvernom_s_1',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea100minvernom_s_1);
-        map.createPane('pane_velocidadea100moutonom_s_2');
-        map.getPane('pane_velocidadea100moutonom_s_2').style.zIndex = 402;
-        var layer_velocidadea100moutonom_s_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_outono_m_s", {
-            pane: 'pane_velocidadea100moutonom_s_2',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea100moutonom_s_2);
-        map.createPane('pane_velocidadea100mprimaveram_s_3');
-        map.getPane('pane_velocidadea100mprimaveram_s_3').style.zIndex = 403;
-        var layer_velocidadea100mprimaveram_s_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_primavera_m_s", {
-            pane: 'pane_velocidadea100mprimaveram_s_3',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea100mprimaveram_s_3);
-        map.createPane('pane_velocidadea100mveraom_s_4');
-        map.getPane('pane_velocidadea100mveraom_s_4').style.zIndex = 404;
-        var layer_velocidadea100mveraom_s_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_verao_m_s", {
-            pane: 'pane_velocidadea100mveraom_s_4',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea100mveraom_s_4);
-        map.createPane('pane_velocidadea150manualm_s_5');
-        map.getPane('pane_velocidadea150manualm_s_5').style.zIndex = 405;
-        var layer_velocidadea150manualm_s_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_anual_m_s", {
-            pane: 'pane_velocidadea150manualm_s_5',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-     //   map.addLayer(layer_velocidadea150manualm_s_5);
-        map.createPane('pane_velocidadea150minvernom_s_6');
-        map.getPane('pane_velocidadea150minvernom_s_6').style.zIndex = 406;
-        var layer_velocidadea150minvernom_s_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_inverno_m_s", {
-            pane: 'pane_velocidadea150minvernom_s_6',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-       // map.addLayer(layer_velocidadea150minvernom_s_6);
-        map.createPane('pane_velocidadea150moutonom_s_7');
-        map.getPane('pane_velocidadea150moutonom_s_7').style.zIndex = 407;
-        var layer_velocidadea150moutonom_s_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_outono_m_s", {
-            pane: 'pane_velocidadea150moutonom_s_7',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea150moutonom_s_7);
-        map.createPane('pane_velocidadea150mprimaveram_s_8');
-        map.getPane('pane_velocidadea150mprimaveram_s_8').style.zIndex = 408;
-        var layer_velocidadea150mprimaveram_s_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_primavera_m_s", {
-            pane: 'pane_velocidadea150mprimaveram_s_8',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea150mprimaveram_s_8);
-        map.createPane('pane_velocidadea150mveraom_s_9');
-        map.getPane('pane_velocidadea150mveraom_s_9').style.zIndex = 409;
-        var layer_velocidadea150mveraom_s_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_verao_m_s", {
-            pane: 'pane_velocidadea150mveraom_s_9',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea150mveraom_s_9);
-        map.createPane('pane_velocidadea200manualm_s_10');
-        map.getPane('pane_velocidadea200manualm_s_10').style.zIndex = 410;
-        var layer_velocidadea200manualm_s_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_anual_m_s", {
-            pane: 'pane_velocidadea200manualm_s_10',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-      //  map.addLayer(layer_velocidadea200manualm_s_10);
-        map.createPane('pane_velocidadea200mivernom_s_11');
-        map.getPane('pane_velocidadea200mivernom_s_11').style.zIndex = 411;
-        var layer_velocidadea200mivernom_s_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_iverno_m_s", {
-            pane: 'pane_velocidadea200mivernom_s_11',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-       // map.addLayer(layer_velocidadea200mivernom_s_11);
-        map.createPane('pane_velocidadea200moutonom_s_12');
-        map.getPane('pane_velocidadea200moutonom_s_12').style.zIndex = 412;
-        var layer_velocidadea200moutonom_s_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_outono_m_s", {
-            pane: 'pane_velocidadea200moutonom_s_12',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-       // map.addLayer(layer_velocidadea200moutonom_s_12);
-        map.createPane('pane_velocidadea200mprimaveram_s_13');
-        map.getPane('pane_velocidadea200mprimaveram_s_13').style.zIndex = 413;
-        var layer_velocidadea200mprimaveram_s_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_primavera_m_s", {
-            pane: 'pane_velocidadea200mprimaveram_s_13',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
-       // map.addLayer(layer_velocidadea200mprimaveram_s_13);
-        map.createPane('pane_velocidadea200mveraom_s_14');
-        map.getPane('pane_velocidadea200mveraom_s_14').style.zIndex = 414;
-        var layer_velocidadea200mveraom_s_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_verao_m_s", {
-            pane: 'pane_velocidadea200mveraom_s_14',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
-            attribution: '',
-        });
+                map.getPane('pane_velocidadea100manualm_s_0').style.zIndex = 401;
+                var layer_velocidadea100manualm_s_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_anual_m_s", {
+                    pane: 'pane_velocidadea100manualm_s_0',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //    map.addLayer(layer_velocidadea100manualm_s_0);
+                map.createPane('pane_velocidadea100minvernom_s_1');
+                map.getPane('pane_velocidadea100minvernom_s_1').style.zIndex = 437;
+                var layer_velocidadea100minvernom_s_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_inverno_m_s", {
+                    pane: 'pane_velocidadea100minvernom_s_1',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea100minvernom_s_1);
+                map.createPane('pane_velocidadea100moutonom_s_2');
+                map.getPane('pane_velocidadea100moutonom_s_2').style.zIndex = 438;
+                var layer_velocidadea100moutonom_s_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_outono_m_s", {
+                    pane: 'pane_velocidadea100moutonom_s_2',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea100moutonom_s_2);
+                map.createPane('pane_velocidadea100mprimaveram_s_3');
+                map.getPane('pane_velocidadea100mprimaveram_s_3').style.zIndex = 439;
+                var layer_velocidadea100mprimaveram_s_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_primavera_m_s", {
+                    pane: 'pane_velocidadea100mprimaveram_s_3',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea100mprimaveram_s_3);
+                map.createPane('pane_velocidadea100mveraom_s_4');
+                map.getPane('pane_velocidadea100mveraom_s_4').style.zIndex = 440;
+                var layer_velocidadea100mveraom_s_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_verao_m_s", {
+                    pane: 'pane_velocidadea100mveraom_s_4',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea100mveraom_s_4);
+                map.createPane('pane_velocidadea150manualm_s_5');
+                map.getPane('pane_velocidadea150manualm_s_5').style.zIndex = 441;
+                var layer_velocidadea150manualm_s_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_anual_m_s", {
+                    pane: 'pane_velocidadea150manualm_s_5',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //   map.addLayer(layer_velocidadea150manualm_s_5);
+                map.createPane('pane_velocidadea150minvernom_s_6');
+                map.getPane('pane_velocidadea150minvernom_s_6').style.zIndex = 442;
+                var layer_velocidadea150minvernom_s_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_inverno_m_s", {
+                    pane: 'pane_velocidadea150minvernom_s_6',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                // map.addLayer(layer_velocidadea150minvernom_s_6);
+                map.createPane('pane_velocidadea150moutonom_s_7');
+                map.getPane('pane_velocidadea150moutonom_s_7').style.zIndex = 443;
+                var layer_velocidadea150moutonom_s_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_outono_m_s", {
+                    pane: 'pane_velocidadea150moutonom_s_7',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea150moutonom_s_7);
+                map.createPane('pane_velocidadea150mprimaveram_s_8');
+                map.getPane('pane_velocidadea150mprimaveram_s_8').style.zIndex = 444;
+                var layer_velocidadea150mprimaveram_s_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_primavera_m_s", {
+                    pane: 'pane_velocidadea150mprimaveram_s_8',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea150mprimaveram_s_8);
+                map.createPane('pane_velocidadea150mveraom_s_9');
+                map.getPane('pane_velocidadea150mveraom_s_9').style.zIndex = 445;
+                var layer_velocidadea150mveraom_s_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_verao_m_s", {
+                    pane: 'pane_velocidadea150mveraom_s_9',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea150mveraom_s_9);
+                map.createPane('pane_velocidadea200manualm_s_10');
+                map.getPane('pane_velocidadea200manualm_s_10').style.zIndex = 446;
+                var layer_velocidadea200manualm_s_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_anual_m_s", {
+                    pane: 'pane_velocidadea200manualm_s_10',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                //  map.addLayer(layer_velocidadea200manualm_s_10);
+                map.createPane('pane_velocidadea200mivernom_s_11');
+                map.getPane('pane_velocidadea200mivernom_s_11').style.zIndex = 447;
+                var layer_velocidadea200mivernom_s_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_iverno_m_s", {
+                    pane: 'pane_velocidadea200mivernom_s_11',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                // map.addLayer(layer_velocidadea200mivernom_s_11);
+                map.createPane('pane_velocidadea200moutonom_s_12');
+                map.getPane('pane_velocidadea200moutonom_s_12').style.zIndex = 448;
+                var layer_velocidadea200moutonom_s_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_outono_m_s", {
+                    pane: 'pane_velocidadea200moutonom_s_12',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                // map.addLayer(layer_velocidadea200moutonom_s_12);
+                map.createPane('pane_velocidadea200mprimaveram_s_13');
+                map.getPane('pane_velocidadea200mprimaveram_s_13').style.zIndex = 449;
+                var layer_velocidadea200mprimaveram_s_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_primavera_m_s", {
+                    pane: 'pane_velocidadea200mprimaveram_s_13',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
+                // map.addLayer(layer_velocidadea200mprimaveram_s_13);
+                map.createPane('pane_velocidadea200mveraom_s_14');
+                map.getPane('pane_velocidadea200mveraom_s_14').style.zIndex = 450;
+                var layer_velocidadea200mveraom_s_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_verao_m_s", {
+                    pane: 'pane_velocidadea200mveraom_s_14',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    identify: false,
+                    attribution: '',
+                });
                 //FIM Recurso Eólico
 
                 var baseMaps = {};
@@ -1826,7 +1876,7 @@
                 var layer_VelocidadedosVentos100m_01 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
-                        name: ' Velocidade dos Ventos (100m)',
+                        name: ' Velocidade dos Ventos (100m) Média Anual',
                         layer: layer_VelocidadedosVentos100m_0,
                         elements: [{
                             label: '',
@@ -1845,6 +1895,331 @@
                     hiddenIcon: 'icon icon-eye-slash'
                 })
                 map.addControl(layer_VelocidadedosVentos100m_01)
+
+                var layer_velocidadea200mveraom_s_141 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (200m) Verão',
+                        layer: layer_velocidadea200mveraom_s_14,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea200mveraom_s_141)
+
+                var layer_velocidadea200mprimaveram_s_131 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (200m) Primavera',
+                        layer: layer_velocidadea200mprimaveram_s_13,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea200mprimaveram_s_131)
+
+                var layer_velocidadea200moutonom_s_121 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (200m) Outono',
+                        layer: layer_velocidadea200moutonom_s_12,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea200moutonom_s_121)
+
+                var layer_velocidadea200mivernom_s_111 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (200m) Inverno',
+                        layer: layer_velocidadea200mivernom_s_11,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea200mivernom_s_111)
+
+                var layer_velocidadea200manualm_s_101 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (200m) Média Anual',
+                        layer: layer_velocidadea200manualm_s_10,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea200manualm_s_101)
+
+                var layer_velocidadea150mveraom_s_91 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (150m) Verão',
+                        layer: layer_velocidadea150mveraom_s_9,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea150mveraom_s_91)
+
+                var layer_velocidadea150mprimaveram_s_81 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (150m) Primavera',
+                        layer: layer_velocidadea150mprimaveram_s_8,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea150mprimaveram_s_81)
+
+                var layer_velocidadea150moutonom_s_71 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (150m) Outono',
+                        layer: layer_velocidadea150moutonom_s_7,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea150moutonom_s_71)
+
+
+                var layer_velocidadea150minvernom_s_61 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (150m) Inverno',
+                        layer: layer_velocidadea150minvernom_s_6,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea150minvernom_s_61)
+
+                var layer_velocidadea150manualm_s_51 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (150m) Média Anual',
+                        layer: layer_velocidadea150manualm_s_5,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea150manualm_s_51)
+
+                var layer_velocidadea100mveraom_s_41 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (100m) Verão',
+                        layer: layer_velocidadea100mveraom_s_4,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea100mveraom_s_41)
+
+
+                var layer_velocidadea100mprimaveram_s_31 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (100m) Primavera',
+                        layer: layer_velocidadea100mprimaveram_s_3,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea100mprimaveram_s_31)
+
+                var layer_velocidadea100moutonom_s_21 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (100m) Outono',
+                        layer: layer_velocidadea100moutonom_s_2,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea100moutonom_s_21)
+
+                var layer_velocidadea100minvernom_s_11 = L.control.htmllegend({
+                    position: 'bottomright',
+                    legends: [{
+                        name: ' Velocidade dos Ventos (100m) Inverno',
+                        layer: layer_velocidadea100minvernom_s_1,
+                        elements: [{
+                            label: '',
+                            html: '<img src="legend/velventos1002.png" />',
+
+                        }]
+
+
+                    }],
+
+                    collapseSimple: false,
+                    detectStretched: true,
+                    collapsedOnInit: false,
+                    defaultOpacity: 0.7,
+                    visibleIcon: 'icon icon-eye',
+                    hiddenIcon: 'icon icon-eye-slash'
+                })
+                map.addControl(layer_velocidadea100minvernom_s_11)
+
                 //Fim Estações Solarimétricas
 
                 //Aspectos Fisiográficos
@@ -1946,7 +2321,7 @@
                     position: 'bottomright',
                     legends: [{
                         name: ' Aerogeradores WEC 265 20MW',
-                        layer: layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2,
+                        layer: layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3,
                         elements: [{
                             label: '',
                             html: '<img src="legend/aerogeradoreswec.png" />',
@@ -2602,54 +2977,54 @@
 
                 setBounds();
 
-        /*        function loadFile() {
+                /*        function loadFile() {
+        
+                            input = document.getElementById('fileinput');
+                            if (!input.files[0]) {
+                                bodyAppend("p", "Please select a file before clicking 'Load'");
+                            }
+                            else {
+                                file = input.files[0];
+        
+                                fr = new FileReader();
+                              //  fr.onload = receiveBinary;
+                              fr.onload =  omnivore.kml(file).addTo(map);                    }
+        
+        
+                                fr.readAsArrayBuffer(file);
+                            }
+                            function receiveBinary() {
+                           //     file = input.files[0];
+                          //      result = fr.result
+                         //       path = fr.readAsArrayBuffer(file)
+                               // var shpfile = new L.Shapefile(result);
+                                // shpfile.addTo(mymap);
+                                omnivore.kml(path).addTo(map);                 
+                        }
+        */
 
-                    input = document.getElementById('fileinput');
-                    if (!input.files[0]) {
-                        bodyAppend("p", "Please select a file before clicking 'Load'");
-                    }
-                    else {
-                        file = input.files[0];
-
-                        fr = new FileReader();
-                      //  fr.onload = receiveBinary;
-                      fr.onload =  omnivore.kml(file).addTo(map);                    }
-
-
-                        fr.readAsArrayBuffer(file);
-                    }
-                    function receiveBinary() {
-                   //     file = input.files[0];
-                  //      result = fr.result
-                 //       path = fr.readAsArrayBuffer(file)
-                       // var shpfile = new L.Shapefile(result);
-                        // shpfile.addTo(mymap);
-                        omnivore.kml(path).addTo(map);                 
+                /*
+                $('#i_file').change( function(event) {
+                var tmppath = URL.createObjectURL(event.target.files[0]);
+                    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+                    
+                    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+                
+                });
+                
+                function enviar(){
+                
                 }
-*/
+                */
+                const inputElement = document.getElementById("i_file");
 
-/*
-$('#i_file').change( function(event) {
-var tmppath = URL.createObjectURL(event.target.files[0]);
-    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
-    
-    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+                inputElement.addEventListener("change", handleFiles, false);
+                function handleFiles() {
+                    const selectedFile = document.getElementById('i_file').files[0];
+                    const objectURL = window.URL.createObjectURL(selectedFile);
+                    omnivore.kml(objectURL).addTo(map);
 
-});
-
-function enviar(){
-
-}
-*/
-const inputElement = document.getElementById("i_file");
-
-inputElement.addEventListener("change", handleFiles, false);
-function handleFiles() {
-    const selectedFile = document.getElementById('i_file').files[0];
-    const objectURL = window.URL.createObjectURL(selectedFile);
-    omnivore.kml(objectURL).addTo(map);                 
-
-}
+                }
 
 
 
