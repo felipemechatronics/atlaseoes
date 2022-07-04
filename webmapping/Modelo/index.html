@@ -382,6 +382,9 @@
             <script src="data/EspritoSanto_2.js"></script>
 
             <!--Fim Recursos Eólicos-->
+            <!--Dashboards-->
+            <script src="data/GRAFICOS_1.js"></script>
+            <!--Fim DashBoard-->
 
             <!--Aspectos Fisiograficos-->
             <script src="data/CurvasBatimtricas_3.js"></script>
@@ -489,7 +492,7 @@
 
 
                                 //recurso eólico
-                                {'layer': layer_VelocidadedosVentos100m_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'velocidade_dos_ventos', needBeAlone: true},
+                                {'layer': layer_SECTIDESAEOLESVELOCIDADE100M_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'velocidade_dos_ventos',sub_layer:layer_GRAFICOS_1, needBeAlone: true},
                                 {'layer': layer_velocidadea100moutonom_s_2, group: 'recurso_eolico', label: 'Velocidade a 100m Outono', 'name': 'Velocidade a 100m Outono', needBeAlone: true},
                                 {'layer': layer_velocidadea100minvernom_s_1, group: 'recurso_eolico', label: 'Velocidade a 100m Inverno', 'name': 'Velocidade a 100m Inverno', needBeAlone: true},
                                 {'layer': layer_velocidadea100mprimaveram_s_3, group: 'recurso_eolico', label: 'Velocidade a 100m Primavera', 'name': 'Velocidade a 100m Primavera', needBeAlone: true},
@@ -745,17 +748,24 @@
 
 
 
-                map.createPane('pane_VelocidadedosVentos100m_0');
-                map.getPane('pane_VelocidadedosVentos100m_0').style.zIndex = 401;
-                var img_VelocidadedosVentos100m_0 = 'data/VelocidadedosVentos100m_0.png';
-                var img_bounds_VelocidadedosVentos100m_0 = [[-22.269231252, -41.878427318], [-17.894231251999972, -28.848427317999985]];
-                var layer_VelocidadedosVentos100m_0 = new L.imageOverlay(img_VelocidadedosVentos100m_0,
-                    img_bounds_VelocidadedosVentos100m_0,
-                    {pane: 'pane_VelocidadedosVentos100m_0'});
-                bounds_group.addLayer(layer_VelocidadedosVentos100m_0);
-                map.addLayer(layer_VelocidadedosVentos100m_0);
-                function pop_GRAFICOS_0(feature, layer) {
-                    var popupContent = '<table>\
+                map.createPane('pane_SECTIDESAEOLESVELOCIDADE100M_0');
+        map.getPane('pane_SECTIDESAEOLESVELOCIDADE100M_0').style.zIndex = 400;
+        var layer_SECTIDESAEOLESVELOCIDADE100M_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_100m", {
+            pane: 'pane_SECTIDESAEOLESVELOCIDADE100M_0',
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            attribution: '',
+        });
+        var latlngpop = L.latLng(-17.61, -40.47);
+
+        map.addLayer(layer_SECTIDESAEOLESVELOCIDADE100M_0);
+        function pop_GRAFICOS_1(feature, layer) {
+            var popupContent = '<table>\
                     <tr>\
                         <th scope="row">DISTWEIBUL</th>\
                         <td>' + (feature.properties['DISTWEIBUL'] !== null ? autolinker.link(feature.properties['DISTWEIBUL'].toLocaleString()) : '') + '</td>\
@@ -777,28 +787,37 @@
                         <td>' + (feature.properties['MED_MEN'] !== null ? autolinker.link(feature.properties['MED_MEN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <td colspan="2">' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-                    layer.bindPopup(popupContent, {maxHeight: 400});
-                }
+            layer.bindPopup(popupContent, {maxHeight: 400}).openPopup(latlngpop);
+        }
 
-                function style_GRAFICOS_0_0() {
-                    return {
-                        pane: 'pane_GRAFICOS_0',
-                        opacity: 1,
-                        color: 'rgba(35,35,35,0.0)',
-                        dashArray: '',
-                        lineCap: 'butt',
-                        lineJoin: 'miter',
-                        weight: 1.0,
-                        fill: true,
-                        fillOpacity: 1,
-                        fillColor: 'rgba(141,90,153,0.0)',
-                        interactive: true,
-                    }
-                }
+        function style_GRAFICOS_1_0() {
+            return {
+                pane: 'pane_GRAFICOS_1',
+                stroke: false, 
+                fillOpacity: 0.2,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_GRAFICOS_1');
+        map.getPane('pane_GRAFICOS_1').style.zIndex = 403;
+        map.getPane('pane_GRAFICOS_1').style['mix-blend-mode'] = 'normal';
+        var layer_GRAFICOS_1 = new L.geoJson(json_GRAFICOS_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_GRAFICOS_1',
+            layerName: 'layer_GRAFICOS_1',
+            pane: 'pane_GRAFICOS_1',
+            onEachFeature: pop_GRAFICOS_1,
+            style: style_GRAFICOS_1_0,
+        });
+        bounds_group.addLayer(layer_GRAFICOS_1);
+        map.addLayer(layer_GRAFICOS_1);
 
 
                 function pop_Municpios_1(feature, layer) {
@@ -875,7 +894,7 @@
                     }
                 }
                 map.createPane('pane_EspritoSanto_2');
-                map.getPane('pane_EspritoSanto_2').style.zIndex = 402;
+                map.getPane('pane_EspritoSanto_2').style.zIndex = 400;
                 map.getPane('pane_EspritoSanto_2').style['mix-blend-mode'] = 'normal';
                 var layer_EspritoSanto_2 = new L.geoJson(json_EspritoSanto_2, {
                     attribution: '',
@@ -1873,11 +1892,11 @@
                 })
                 map.addControl(layer_Municpios_11)
 
-                var layer_VelocidadedosVentos100m_01 = L.control.htmllegend({
+                var layer_SECTIDESAEOLESVELOCIDADE100M_01 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
                         name: ' Velocidade dos Ventos (100m) Média Anual',
-                        layer: layer_VelocidadedosVentos100m_0,
+                        layer: layer_SECTIDESAEOLESVELOCIDADE100M_0,
                         elements: [{
                             label: '',
                             html: '<img src="legend/velventos1002.png" />',
@@ -1894,7 +1913,7 @@
                     visibleIcon: 'icon icon-eye',
                     hiddenIcon: 'icon icon-eye-slash'
                 })
-                map.addControl(layer_VelocidadedosVentos100m_01)
+                map.addControl(layer_SECTIDESAEOLESVELOCIDADE100M_01)
 
                 var layer_velocidadea200mveraom_s_141 = L.control.htmllegend({
                     position: 'bottomright',
