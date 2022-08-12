@@ -134,12 +134,13 @@
                 <ul class="list-unstyled ps-0" id="search">
                     <span class="fs-5">Importar KML</span>
 
-                    <div >   
-                    <input type="file" id="i_file" value="" >
-                    <br>
-                    <img src="" width="200" style="display:none;" />
-                    <br>
-                 <!---->   <div id="disp_tmp_path" text-align:center></div>
+                    <div>
+                        <input type="file" id="i_file" value="" title="&nbsp;" />
+                        <br>
+                        <img src="" width="200" style="display:none;" />
+                        <br>
+                        <!---->
+                        <div id="disp_tmp_path" text-align:center></div>
                     </div>
 
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
@@ -488,7 +489,7 @@
 
 
                                 //recurso eólico
-                                {'layer': layer_SECTIDESAEOLESVELOCIDADE100M_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'velocidade_dos_ventos',sub_layer:layer_GRAFICOS_1, needBeAlone: true},
+                                {'layer': layer_SECTIDESAEOLESVELOCIDADE100M_0, group: 'recurso_eolico', label: 'Velocidade a 100m Média Anual', 'name': 'velocidade_dos_ventos', sub_layer: layer_GRAFICOS_1, needBeAlone: true},
                                 {'layer': layer_velocidadea100moutonom_s_2, group: 'recurso_eolico', label: 'Velocidade a 100m Outono', 'name': 'Velocidade a 100m Outono', needBeAlone: true},
                                 {'layer': layer_velocidadea100minvernom_s_1, group: 'recurso_eolico', label: 'Velocidade a 100m Inverno', 'name': 'Velocidade a 100m Inverno', needBeAlone: true},
                                 {'layer': layer_velocidadea100mprimaveram_s_3, group: 'recurso_eolico', label: 'Velocidade a 100m Primavera', 'name': 'Velocidade a 100m Primavera', needBeAlone: true},
@@ -673,7 +674,7 @@
                 })
                     ;
 
-
+                //
 
 
 
@@ -745,23 +746,23 @@
 
 
                 map.createPane('pane_SECTIDESAEOLESVELOCIDADE100M_0');
-        map.getPane('pane_SECTIDESAEOLESVELOCIDADE100M_0').style.zIndex = 400;
-        var layer_SECTIDESAEOLESVELOCIDADE100M_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_100m", {
-            pane: 'pane_SECTIDESAEOLESVELOCIDADE100M_0',
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            attribution: '',
-        });
-        var latlngpop = L.latLng(-17.61, -40.47);
+                map.getPane('pane_SECTIDESAEOLESVELOCIDADE100M_0').style.zIndex = 400;
+                var layer_SECTIDESAEOLESVELOCIDADE100M_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_100m", {
+                    pane: 'pane_SECTIDESAEOLESVELOCIDADE100M_0',
+                    format: 'image/png',
+                    uppercase: true,
+                    transparent: true,
+                    continuousWorld: true,
+                    tiled: true,
+                    info_format: 'text/html',
+                    opacity: 1,
+                    attribution: '',
+                });
+                var latlngpop = L.latLng(-17.61, -40.47);
 
-        map.addLayer(layer_SECTIDESAEOLESVELOCIDADE100M_0);
-        function pop_GRAFICOS_1(feature, layer) {
-            var popupContent = '<table>\
+                map.addLayer(layer_SECTIDESAEOLESVELOCIDADE100M_0);
+                function pop_GRAFICOS_1(feature, layer) {
+                    var popupContent = '<table>\
                     <tr>\
                         <th scope="row">DISTWEIBUL</th>\
                         <td>' + (feature.properties['DISTWEIBUL'] !== null ? autolinker.link(feature.properties['DISTWEIBUL'].toLocaleString()) : '') + '</td>\
@@ -788,31 +789,31 @@
                         <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400}).openPopup(latlngpop);
-        }
+                    layer.bindPopup(popupContent, {maxHeight: 400}).openPopup(latlngpop);
+                }
 
-        function style_GRAFICOS_1_0() {
-            return {
-                pane: 'pane_GRAFICOS_1',
-                stroke: false, 
-                fillOpacity: 0.2,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_GRAFICOS_1');
-        map.getPane('pane_GRAFICOS_1').style.zIndex = 403;
-        map.getPane('pane_GRAFICOS_1').style['mix-blend-mode'] = 'normal';
-        var layer_GRAFICOS_1 = new L.geoJson(json_GRAFICOS_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_GRAFICOS_1',
-            layerName: 'layer_GRAFICOS_1',
-            pane: 'pane_GRAFICOS_1',
-            onEachFeature: pop_GRAFICOS_1,
-            style: style_GRAFICOS_1_0,
-        });
-        bounds_group.addLayer(layer_GRAFICOS_1);
-        map.addLayer(layer_GRAFICOS_1);
+                function style_GRAFICOS_1_0() {
+                    return {
+                        pane: 'pane_GRAFICOS_1',
+                        stroke: false,
+                        fillOpacity: 0.2,
+                        interactive: true,
+                    }
+                }
+                map.createPane('pane_GRAFICOS_1');
+                map.getPane('pane_GRAFICOS_1').style.zIndex = 403;
+                map.getPane('pane_GRAFICOS_1').style['mix-blend-mode'] = 'normal';
+                var layer_GRAFICOS_1 = new L.geoJson(json_GRAFICOS_1, {
+                    attribution: '',
+                    interactive: true,
+                    dataVar: 'json_GRAFICOS_1',
+                    layerName: 'layer_GRAFICOS_1',
+                    pane: 'pane_GRAFICOS_1',
+                    onEachFeature: pop_GRAFICOS_1,
+                    style: style_GRAFICOS_1_0,
+                });
+                bounds_group.addLayer(layer_GRAFICOS_1);
+                map.addLayer(layer_GRAFICOS_1);
 
 
                 function pop_Municpios_1(feature, layer) {
@@ -1781,6 +1782,10 @@
                     attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/">MapQuest</a>',
                     subdomains: '1234'
                 });
+                var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                    maxZoom: 20,
+                    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                });
 
                 // ADICIONA O Minimap
 
@@ -1798,8 +1803,10 @@
                         children: [
 
                             {label: 'OpenStreetMap', layer: osm2, name: 'osm'},
-                            {label: 'MapQuest', layer: mqo2, name: 'mapquest'},
+                            {label: 'Bing', layer: mqo2, name: 'Bing'},
                             {label: 'Esri', layer: Esri_WorldImagery, name: 'Esri'},
+                            {label: 'Google Satélite', layer: googleSat, name: 'Google Satélite'},
+                            
 
 
                         ]
@@ -3039,6 +3046,7 @@
                     omnivore.kml(objectURL).addTo(map);
 
                 }
+
 
 
 
