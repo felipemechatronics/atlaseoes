@@ -130,7 +130,17 @@
                     <span class="fs-5 fw-semibold">Camadas</span>
                 </a>
 
+
                 <ul class="list-unstyled ps-0" id="search">
+                    <span class="fs-5">Importar KML</span>
+
+                    <div >   
+                    <input type="file" id="i_file" value="" >
+                    <br>
+                    <img src="" width="200" style="display:none;" />
+                    <br>
+                 <!---->   <div id="disp_tmp_path" text-align:center></div>
+                    </div>
 
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
                         data-bs-target="#recurso_eolico" aria-expanded="false">
@@ -278,12 +288,6 @@
             </div>
             <!--Input KML-->
 
-            <input type="file" id="i_file" value="">
-            <br>
-            <img src="" width="200" style="display:none;" />
-            <br>
-            <div id="disp_tmp_path"></div>
-
             <!-- FIM Input KML-->
         </div>
 
@@ -311,11 +315,7 @@
 
             <!--Fim Árvore Nova-->
             <!--Load KML-->
-<<<<<<< HEAD
-      
-=======
-           
->>>>>>> 12605712730315475ffd50c079ed2b076d949269
+
             <!--Fim KML-->
 
             <style>
@@ -766,11 +766,8 @@
                         <th scope="row">DISTWEIBUL</th>\
                         <td>' + (feature.properties['DISTWEIBUL'] !== null ? autolinker.link(feature.properties['DISTWEIBUL'].toLocaleString()) : '') + '</td>\
                     </tr>\
-<<<<<<< HEAD
                      <tr>\
-=======
                     <tr>\
->>>>>>> 12605712730315475ffd50c079ed2b076d949269
                     </tr>\
                     <tr>\
                         <th scope="row">FREQ_VEL</th>\
