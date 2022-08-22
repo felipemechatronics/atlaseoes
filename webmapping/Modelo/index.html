@@ -137,6 +137,7 @@
                     <div>
                         <input type="file" id="i_file" value="" title="&nbsp;" />
                         <br>
+
                         <img src="" width="200" style="display:none;" />
                         <br>
                         <!---->
@@ -421,6 +422,8 @@
             <!--Fim da legenda-->
 
             <!--FIm do Easy Bottom-->
+
+
             <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
             <script type="module">
@@ -472,7 +475,7 @@
                                 {'layer': layer_SECTIDESAEOLESHIDROVIAS_13, group: 'infraestrutura_de_transportes', label: 'Hidrovias', 'name': 'Hidrovias', needBeAlone: false},
                                 {'layer': layer_SECTIDESAEOLESFERROVIASGEOBASES_11, group: 'infraestrutura_de_transportes', label: 'Ferrovias Geobases', 'name': 'Ferrovias Geobases', needBeAlone: false},
                                 {'layer': layer_SECTIDESAEOLESLINHASDECABOTAGEM_14, group: 'infraestrutura_de_transportes', label: 'Linhas de Cabotagem', 'name': 'Linhas de Cabotagem', needBeAlone: false},
-                                {'layer': layer_SECTIDESAEOLESPORTOS_20, group: 'infraestrutura_de_transportes', label: 'Portos', 'name': 'Portos', needBeAlone: false},
+                           //     {'layer': layer_SECTIDESAEOLESPORTOS_20, group: 'infraestrutura_de_transportes', label: 'Portos', 'name': 'Portos', needBeAlone: false},
                                 {'layer': layer_SECTIDESAEOLESRODOVIASFEDERAIS_22, group: 'infraestrutura_de_transportes', label: 'Rodovias Federais', 'name': 'Rodovias Federais', needBeAlone: false},
                                 {'layer': layer_SECTIDESAEOLESRODOVIASGEOBASES_23, group: 'infraestrutura_de_transportes', label: 'Rodovias Geobases', 'name': 'Rodovias Geobases', needBeAlone: false},
                                 {'layer': layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24, group: 'infraestrutura_de_transportes', label: 'Rodovias MAPBIOMAS', 'name': 'Rodovias MAPBIOMAS', needBeAlone: false},
@@ -747,7 +750,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESVELOCIDADE100M_0');
                 map.getPane('pane_SECTIDESAEOLESVELOCIDADE100M_0').style.zIndex = 400;
-                var layer_SECTIDESAEOLESVELOCIDADE100M_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_100m", {
+                var layer_SECTIDESAEOLESVELOCIDADE100M_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_100m_anual_m_s", {
                     pane: 'pane_SECTIDESAEOLESVELOCIDADE100M_0',
                     format: 'image/png',
                     uppercase: true,
@@ -1103,7 +1106,7 @@
                 //infraestrutura de energias
                 map.createPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2');
                 map.getPane('pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2').style.zIndex = 408;
-                var layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_SG_10_0_193DD", {
+                var layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "aerogeradores_sg_10_0_193dd", {
                     pane: 'pane_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2',
                     format: 'image/png',
                     uppercase: true,
@@ -1117,7 +1120,7 @@
                 //  map.addLayer(layer_SECTIDESAEOLESAEROGERADORESSG100193DD193DD_2);
                 map.createPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3');
                 map.getPane('pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3').style.zIndex = 409;
-                var layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerogeradores_WEC_265_20MW", {
+                var layer_SECTIDESAEOLESAEROGERADORESWEC26520MW_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "aerogeradores_wec_265_20mw", {
                     pane: 'pane_SECTIDESAEOLESAEROGERADORESWEC26520MW_3',
                     format: 'image/png',
                     uppercase: true,
@@ -1131,7 +1134,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15');
                 map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15').style.zIndex = 410;
-                var layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Existen", {
+                var layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "linhas_transmissao_existentes", {
                     pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15',
                     format: 'image/png',
                     uppercase: true,
@@ -1145,7 +1148,7 @@
                 //      map.addLayer(layer_SECTIDESAEOLESLINHASDETRANSMISSOEXISTENTES_15);
                 map.createPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16');
                 map.getPane('pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16').style.zIndex = 411;
-                var layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_de_Transmissao_Planeja", {
+                var layer_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "linhas_transmissao_planejada", {
                     pane: 'pane_SECTIDESAEOLESLINHASDETRANSMISSOPLANEJADAS_16',
                     format: 'image/png',
                     uppercase: true,
@@ -1159,7 +1162,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17');
                 map.getPane('pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17').style.zIndex = 412;
-                var layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_01_Votu_Winds", {
+                var layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "poligonal_es_01_votu_winds", {
                     pane: 'pane_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17',
                     format: 'image/png',
                     uppercase: true,
@@ -1173,7 +1176,7 @@
                 //   map.addLayer(layer_SECTIDESAEOLESPOLIGONALES01VOTUWINDS_17);
                 map.createPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18');
                 map.getPane('pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18').style.zIndex = 413;
-                var layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_02_Vitoria_Offsh", {
+                var layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "poligonal_es_02_vitoria_offshore", {
                     pane: 'pane_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18',
                     format: 'image/png',
                     uppercase: true,
@@ -1187,7 +1190,7 @@
                 //     map.addLayer(layer_SECTIDESAEOLESPOLIGONALES02VITORIAOFFSHORE_18);
                 map.createPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19');
                 map.getPane('pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19').style.zIndex = 414;
-                var layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Poligonal_ES_03_Quesnelia", {
+                var layer_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "poligonal_es_03_quesnelia", {
                     pane: 'pane_SECTIDESAEOLESPOLIGONALES03QUESNELIA_19',
                     format: 'image/png',
                     uppercase: true,
@@ -1201,7 +1204,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25');
                 map.getPane('pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25').style.zIndex = 415;
-                var layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Existentes", {
+                var layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "subestacoes_existentes", {
                     pane: 'pane_SECTIDESAEOLESSUBESTAESEXISTENTES_25',
                     format: 'image/png',
                     uppercase: true,
@@ -1215,7 +1218,7 @@
                 //      map.addLayer(layer_SECTIDESAEOLESSUBESTAESEXISTENTES_25);
                 map.createPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26');
                 map.getPane('pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26').style.zIndex = 416;
-                var layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Subestacoes_Planejadas", {
+                var layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "subestacoes_planejadas", {
                     pane: 'pane_SECTIDESAEOLESSUBESTAESPLANEJADAS_26',
                     format: 'image/png',
                     uppercase: true,
@@ -1229,7 +1232,7 @@
                 //     map.addLayer(layer_SECTIDESAEOLESSUBESTAESPLANEJADAS_26);
                 map.createPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27');
                 map.getPane('pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27').style.zIndex = 417;
-                var layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Unidades_de_Conservacao", {
+                var layer_SECTIDESAEOLESUNIDADESDECONSERVAO_27 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "_2019_10_24_uc_federais_es_31984", {
                     pane: 'pane_SECTIDESAEOLESUNIDADESDECONSERVAO_27',
                     format: 'image/png',
                     uppercase: true,
@@ -1243,7 +1246,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6');
                 map.getPane('pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6').style.zIndex = 418;
-                var layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_BLOCOS_EXPLORATORIOS_ES", {
+                var layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "blocos_exploratorios_es", {
                     pane: 'pane_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6',
                     format: 'image/png',
                     uppercase: true,
@@ -1257,7 +1260,7 @@
                 //  map.addLayer(layer_SECTIDESAEOLESBLOCOSEXPLORATRIOS_6);
                 map.createPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7');
                 map.getPane('pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7').style.zIndex = 419;
-                var layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_CAMPOS_EXPLORATORIOS_ES", {
+                var layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "campos_exploratorios_es", {
                     pane: 'pane_SECTIDESAEOLESCAMPOSEXPLORATRIOS_7',
                     format: 'image/png',
                     uppercase: true,
@@ -1270,7 +1273,7 @@
                 });
                 map.createPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8');
                 map.getPane('pane_SECTIDESAEOLESCAMPOSDEPRODUO_8').style.zIndex = 420;
-                var layer_SECTIDESAEOLESCAMPOSDEPRODUO_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Campos_de_Producao", {
+                var layer_SECTIDESAEOLESCAMPOSDEPRODUO_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "campos_de_producao_es", {
                     pane: 'pane_SECTIDESAEOLESCAMPOSDEPRODUO_8',
                     format: 'image/png',
                     uppercase: true,
@@ -1284,7 +1287,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10');
                 map.getPane('pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10').style.zIndex = 421;
-                var layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Dutos_de_escoamento", {
+                var layer_SECTIDESAEOLESDUTOSDEESCOAMENTO_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "dutos_de_escoamento_es", {
                     pane: 'pane_SECTIDESAEOLESDUTOSDEESCOAMENTO_10',
                     format: 'image/png',
                     uppercase: true,
@@ -1300,7 +1303,7 @@
                 //      map.addLayer(layer_SECTIDESAEOLESFERROVIASGEOBASES_11);
                 map.createPane('pane_SECTIDESAEOLESGASODUTO_12');
                 map.getPane('pane_SECTIDESAEOLESGASODUTO_12').style.zIndex = 422;
-                var layer_SECTIDESAEOLESGASODUTO_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Gasoduto", {
+                var layer_SECTIDESAEOLESGASODUTO_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "gasoduto_es", {
                     pane: 'pane_SECTIDESAEOLESGASODUTO_12',
                     format: 'image/png',
                     uppercase: true,
@@ -1313,7 +1316,7 @@
                 });
                 map.createPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9');
                 map.getPane('pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9').style.zIndex = 423;
-                var layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Duto_Nao_Identificado", {
+                var layer_SECTIDESAEOLESDUTONOIDENTIFICADO_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "duto_nao_identificado_es", {
                     pane: 'pane_SECTIDESAEOLESDUTONOIDENTIFICADO_9',
                     format: 'image/png',
                     uppercase: true,
@@ -1330,7 +1333,7 @@
                 //Infraestruturadetransportes
                 map.createPane('pane_SECTIDESAEOLESAERDROMOS_1');
                 map.getPane('pane_SECTIDESAEOLESAERDROMOS_1').style.zIndex = 424;
-                var layer_SECTIDESAEOLESAERDROMOS_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Aerodromos", {
+                var layer_SECTIDESAEOLESAERDROMOS_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "anac_aerodromos_civis_publicos_es0", {
                     pane: 'pane_SECTIDESAEOLESAERDROMOS_1',
                     format: 'image/png',
                     uppercase: true,
@@ -1344,7 +1347,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESHIDROVIAS_13');
                 map.getPane('pane_SECTIDESAEOLESHIDROVIAS_13').style.zIndex = 425;
-                var layer_SECTIDESAEOLESHIDROVIAS_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Hidrovias", {
+                var layer_SECTIDESAEOLESHIDROVIAS_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "hidrovias_es", {
                     pane: 'pane_SECTIDESAEOLESHIDROVIAS_13',
                     format: 'image/png',
                     uppercase: true,
@@ -1358,7 +1361,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11');
                 map.getPane('pane_SECTIDESAEOLESFERROVIASGEOBASES_11').style.zIndex = 426;
-                var layer_SECTIDESAEOLESFERROVIASGEOBASES_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Ferrovias_Geobases", {
+                var layer_SECTIDESAEOLESFERROVIASGEOBASES_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "tra_dnit_ferrovias_2017", {
                     pane: 'pane_SECTIDESAEOLESFERROVIASGEOBASES_11',
                     format: 'image/png',
                     uppercase: true,
@@ -1372,7 +1375,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14');
                 map.getPane('pane_SECTIDESAEOLESLINHASDECABOTAGEM_14').style.zIndex = 427;
-                var layer_SECTIDESAEOLESLINHASDECABOTAGEM_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Linhas_Cabotagem", {
+                var layer_SECTIDESAEOLESLINHASDECABOTAGEM_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "linhas_cabotagem_es", {
                     pane: 'pane_SECTIDESAEOLESLINHASDECABOTAGEM_14',
                     format: 'image/png',
                     uppercase: true,
@@ -1385,7 +1388,7 @@
                 });
                 map.createPane('pane_SECTIDESAEOLESPORTOS_20');
                 map.getPane('pane_SECTIDESAEOLESPORTOS_20').style.zIndex = 428;
-                var layer_SECTIDESAEOLESPORTOS_20 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Portos", {
+                var layer_SECTIDESAEOLESPORTOS_20 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "portos_es", {
                     pane: 'pane_SECTIDESAEOLESPORTOS_20',
                     format: 'image/png',
                     uppercase: true,
@@ -1399,7 +1402,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22');
                 map.getPane('pane_SECTIDESAEOLESRODOVIASFEDERAIS_22').style.zIndex = 429;
-                var layer_SECTIDESAEOLESRODOVIASFEDERAIS_22 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovia_Federal", {
+                var layer_SECTIDESAEOLESRODOVIASFEDERAIS_22 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "dnit_rodovias_es_31984", {
                     pane: 'pane_SECTIDESAEOLESRODOVIASFEDERAIS_22',
                     format: 'image/png',
                     uppercase: true,
@@ -1413,7 +1416,7 @@
                 //      map.addLayer(layer_SECTIDESAEOLESRODOVIASFEDERAIS_22);
                 map.createPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23');
                 map.getPane('pane_SECTIDESAEOLESRODOVIASGEOBASES_23').style.zIndex = 430;
-                var layer_SECTIDESAEOLESRODOVIASGEOBASES_23 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_Geobases", {
+                var layer_SECTIDESAEOLESRODOVIASGEOBASES_23 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "rede_rodoviaria_der_es_2020", {
                     pane: 'pane_SECTIDESAEOLESRODOVIASGEOBASES_23',
                     format: 'image/png',
                     uppercase: true,
@@ -1427,7 +1430,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24');
                 map.getPane('pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24').style.zIndex = 431;
-                var layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Rodovias_MapBiomas", {
+                var layer_SECTIDESAEOLESRODOVIASMAPBIOMAS_24 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "rodovias_mapbiomas", {
                     pane: 'pane_SECTIDESAEOLESRODOVIASMAPBIOMAS_24',
                     format: 'image/png',
                     uppercase: true,
@@ -1444,7 +1447,7 @@
                 //SocioAmbiental
                 map.createPane('pane_SECTIDESAEOLESAIRIQUEZA_0');
                 map.getPane('pane_SECTIDESAEOLESAIRIQUEZA_0').style.zIndex = 432;
-                var layer_SECTIDESAEOLESAIRIQUEZA_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_AI_Riqueza", {
+                var layer_SECTIDESAEOLESAIRIQUEZA_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "ai_riqueza_es", {
                     pane: 'pane_SECTIDESAEOLESAIRIQUEZA_0',
                     format: 'image/png',
                     uppercase: true,
@@ -1458,9 +1461,9 @@
 
 
 
-                map.createPane('pane_SECTIDESAEOLESREASURBANAS_4');
+               map.createPane('pane_SECTIDESAEOLESREASURBANAS_4');
                 map.getPane('pane_SECTIDESAEOLESREASURBANAS_4').style.zIndex = 433;
-                var layer_SECTIDESAEOLESREASURBANAS_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Areas_Urbanas", {
+                var layer_SECTIDESAEOLESREASURBANAS_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "area_urbanizada", {
                     pane: 'pane_SECTIDESAEOLESREASURBANAS_4',
                     format: 'image/png',
                     uppercase: true,
@@ -1471,10 +1474,11 @@
                     opacity: 1,
                     attribution: '',
                 });
-                //  map.addLayer(layer_SECTIDESAEOLESREASURBANAS_4);
+                  map.addLayer(layer_SECTIDESAEOLESREASURBANAS_4);
+
                 map.createPane('pane_SECTIDESAEOLESARQUEOLOGIA_5');
                 map.getPane('pane_SECTIDESAEOLESARQUEOLOGIA_5').style.zIndex = 434;
-                var layer_SECTIDESAEOLESARQUEOLOGIA_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Arqueologia", {
+                var layer_SECTIDESAEOLESARQUEOLOGIA_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "arqueologia_es", {
                     pane: 'pane_SECTIDESAEOLESARQUEOLOGIA_5',
                     format: 'image/png',
                     uppercase: true,
@@ -1488,7 +1492,7 @@
 
                 map.createPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21');
                 map.getPane('pane_SECTIDESAEOLESQIOLOMBOLAS_21').style.zIndex = 435;
-                var layer_SECTIDESAEOLESQIOLOMBOLAS_21 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "Atlas_Eolico_ES_Quilombolas_20_1_", {
+                var layer_SECTIDESAEOLESQIOLOMBOLAS_21 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "incra_quilombolas_es_31984", {
                     pane: 'pane_SECTIDESAEOLESQIOLOMBOLAS_21',
                     format: 'image/png',
                     uppercase: true,
@@ -1505,7 +1509,7 @@
                 //Recurso Eólico
                 map.createPane('pane_velocidadea100manualm_s_0');
                 map.getPane('pane_velocidadea100manualm_s_0').style.zIndex = 401;
-                var layer_velocidadea100manualm_s_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_anual_m_s", {
+                var layer_velocidadea100manualm_s_0 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_100m_anual_m_s", {
                     pane: 'pane_velocidadea100manualm_s_0',
                     format: 'image/png',
                     uppercase: true,
@@ -1520,7 +1524,7 @@
                 //    map.addLayer(layer_velocidadea100manualm_s_0);
                 map.createPane('pane_velocidadea100minvernom_s_1');
                 map.getPane('pane_velocidadea100minvernom_s_1').style.zIndex = 437;
-                var layer_velocidadea100minvernom_s_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_inverno_m_s", {
+                var layer_velocidadea100minvernom_s_1 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_100m_inverno_m_s", {
                     pane: 'pane_velocidadea100minvernom_s_1',
                     format: 'image/png',
                     uppercase: true,
@@ -1535,7 +1539,7 @@
                 //  map.addLayer(layer_velocidadea100minvernom_s_1);
                 map.createPane('pane_velocidadea100moutonom_s_2');
                 map.getPane('pane_velocidadea100moutonom_s_2').style.zIndex = 438;
-                var layer_velocidadea100moutonom_s_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_outono_m_s", {
+                var layer_velocidadea100moutonom_s_2 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_100m_outono_m_s", {
                     pane: 'pane_velocidadea100moutonom_s_2',
                     format: 'image/png',
                     uppercase: true,
@@ -1550,7 +1554,7 @@
                 //  map.addLayer(layer_velocidadea100moutonom_s_2);
                 map.createPane('pane_velocidadea100mprimaveram_s_3');
                 map.getPane('pane_velocidadea100mprimaveram_s_3').style.zIndex = 439;
-                var layer_velocidadea100mprimaveram_s_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_primavera_m_s", {
+                var layer_velocidadea100mprimaveram_s_3 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_100m_primavera_m_s", {
                     pane: 'pane_velocidadea100mprimaveram_s_3',
                     format: 'image/png',
                     uppercase: true,
@@ -1565,7 +1569,7 @@
                 //  map.addLayer(layer_velocidadea100mprimaveram_s_3);
                 map.createPane('pane_velocidadea100mveraom_s_4');
                 map.getPane('pane_velocidadea100mveraom_s_4').style.zIndex = 440;
-                var layer_velocidadea100mveraom_s_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_100m_verao_m_s", {
+                var layer_velocidadea100mveraom_s_4 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_100m_verao_m_s", {
                     pane: 'pane_velocidadea100mveraom_s_4',
                     format: 'image/png',
                     uppercase: true,
@@ -1580,7 +1584,7 @@
                 //  map.addLayer(layer_velocidadea100mveraom_s_4);
                 map.createPane('pane_velocidadea150manualm_s_5');
                 map.getPane('pane_velocidadea150manualm_s_5').style.zIndex = 441;
-                var layer_velocidadea150manualm_s_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_anual_m_s", {
+                var layer_velocidadea150manualm_s_5 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_150m_anual_m_s", {
                     pane: 'pane_velocidadea150manualm_s_5',
                     format: 'image/png',
                     uppercase: true,
@@ -1595,7 +1599,7 @@
                 //   map.addLayer(layer_velocidadea150manualm_s_5);
                 map.createPane('pane_velocidadea150minvernom_s_6');
                 map.getPane('pane_velocidadea150minvernom_s_6').style.zIndex = 442;
-                var layer_velocidadea150minvernom_s_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_inverno_m_s", {
+                var layer_velocidadea150minvernom_s_6 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_150m_inverno_m_s", {
                     pane: 'pane_velocidadea150minvernom_s_6',
                     format: 'image/png',
                     uppercase: true,
@@ -1610,7 +1614,7 @@
                 // map.addLayer(layer_velocidadea150minvernom_s_6);
                 map.createPane('pane_velocidadea150moutonom_s_7');
                 map.getPane('pane_velocidadea150moutonom_s_7').style.zIndex = 443;
-                var layer_velocidadea150moutonom_s_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_outono_m_s", {
+                var layer_velocidadea150moutonom_s_7 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_150m_outono_m_s", {
                     pane: 'pane_velocidadea150moutonom_s_7',
                     format: 'image/png',
                     uppercase: true,
@@ -1625,7 +1629,7 @@
                 //  map.addLayer(layer_velocidadea150moutonom_s_7);
                 map.createPane('pane_velocidadea150mprimaveram_s_8');
                 map.getPane('pane_velocidadea150mprimaveram_s_8').style.zIndex = 444;
-                var layer_velocidadea150mprimaveram_s_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_primavera_m_s", {
+                var layer_velocidadea150mprimaveram_s_8 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_150m_primavera_m_s", {
                     pane: 'pane_velocidadea150mprimaveram_s_8',
                     format: 'image/png',
                     uppercase: true,
@@ -1640,7 +1644,7 @@
                 //  map.addLayer(layer_velocidadea150mprimaveram_s_8);
                 map.createPane('pane_velocidadea150mveraom_s_9');
                 map.getPane('pane_velocidadea150mveraom_s_9').style.zIndex = 445;
-                var layer_velocidadea150mveraom_s_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_150m_verao_m_s", {
+                var layer_velocidadea150mveraom_s_9 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_150m_verao_m_s", {
                     pane: 'pane_velocidadea150mveraom_s_9',
                     format: 'image/png',
                     uppercase: true,
@@ -1655,7 +1659,7 @@
                 //  map.addLayer(layer_velocidadea150mveraom_s_9);
                 map.createPane('pane_velocidadea200manualm_s_10');
                 map.getPane('pane_velocidadea200manualm_s_10').style.zIndex = 446;
-                var layer_velocidadea200manualm_s_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_anual_m_s", {
+                var layer_velocidadea200manualm_s_10 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_200m_anual_m_s", {
                     pane: 'pane_velocidadea200manualm_s_10',
                     format: 'image/png',
                     uppercase: true,
@@ -1670,7 +1674,7 @@
                 //  map.addLayer(layer_velocidadea200manualm_s_10);
                 map.createPane('pane_velocidadea200mivernom_s_11');
                 map.getPane('pane_velocidadea200mivernom_s_11').style.zIndex = 447;
-                var layer_velocidadea200mivernom_s_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_iverno_m_s", {
+                var layer_velocidadea200mivernom_s_11 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_200m_iverno_m_s", {
                     pane: 'pane_velocidadea200mivernom_s_11',
                     format: 'image/png',
                     uppercase: true,
@@ -1685,7 +1689,7 @@
                 // map.addLayer(layer_velocidadea200mivernom_s_11);
                 map.createPane('pane_velocidadea200moutonom_s_12');
                 map.getPane('pane_velocidadea200moutonom_s_12').style.zIndex = 448;
-                var layer_velocidadea200moutonom_s_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_outono_m_s", {
+                var layer_velocidadea200moutonom_s_12 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_200m_outono_m_s", {
                     pane: 'pane_velocidadea200moutonom_s_12',
                     format: 'image/png',
                     uppercase: true,
@@ -1700,7 +1704,7 @@
                 // map.addLayer(layer_velocidadea200moutonom_s_12);
                 map.createPane('pane_velocidadea200mprimaveram_s_13');
                 map.getPane('pane_velocidadea200mprimaveram_s_13').style.zIndex = 449;
-                var layer_velocidadea200mprimaveram_s_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_primavera_m_s", {
+                var layer_velocidadea200mprimaveram_s_13 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_200m_primavera_m_s", {
                     pane: 'pane_velocidadea200mprimaveram_s_13',
                     format: 'image/png',
                     uppercase: true,
@@ -1715,7 +1719,7 @@
                 // map.addLayer(layer_velocidadea200mprimaveram_s_13);
                 map.createPane('pane_velocidadea200mveraom_s_14');
                 map.getPane('pane_velocidadea200mveraom_s_14').style.zIndex = 450;
-                var layer_velocidadea200mveraom_s_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/ows?version=1.0.0", "velocidade_a_200m_verao_m_s", {
+                var layer_velocidadea200mveraom_s_14 = L.WMS.layer("https://ide.geobases.es.gov.br/geoserver/geonode/wms?version=1.1.0&layers=geonode%253Avelocidade_a_100m_anual_m_s&bbox=-41.85182735926379%252C-22.25747117317129%252C-37.44223414212867%252C-17.91666193864663&width=768&height=756&srs=EPSG%253A4674", "velocidade_a_200m_verao_m_s", {
                     pane: 'pane_velocidadea200mveraom_s_14',
                     format: 'image/png',
                     uppercase: true,
@@ -1806,7 +1810,7 @@
                             {label: 'Bing', layer: mqo2, name: 'Bing'},
                             {label: 'Esri', layer: Esri_WorldImagery, name: 'Esri'},
                             {label: 'Google Satélite', layer: googleSat, name: 'Google Satélite'},
-                            
+
 
 
                         ]
@@ -2593,7 +2597,7 @@
                 })
                 map.addControl(layer_SECTIDESAEOLESCAMPOSEXPLORATRIOS_71)
 
-                var layer_SECTIDESAEOLESCAMPOSDEPRODUO_81 = L.control.htmllegend({
+                var v_81 = L.control.htmllegend({
                     position: 'bottomright',
                     legends: [{
                         name: 'Campos de Produção',
